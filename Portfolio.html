@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vishal Chaudhary | Information Security Consultant Portfolio</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
+      color: #333;
+      display: flex;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 280px;
+      background: #0073b1;
+      color: white;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: fixed;
+      height: 100vh;
+      box-shadow: 3px 0 8px rgba(0,0,0,0.15);
+    }
+    .sidebar img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid #fff;
+    }
+    .sidebar h2 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 5px;
+    }
+    .sidebar p {
+      margin: 0;
+      font-weight: 500;
+      opacity: 0.85;
+      margin-bottom: 25px;
+      font-size: 1rem;
+    }
+    .contacts {
+      width: 100%;
+      background: #005582;
+      border-radius: 8px;
+      padding: 15px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    }
+    .contacts h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border-bottom: 1px solid #004a7f;
+      padding-bottom: 6px;
+    }
+    .contacts div {
+      margin-bottom: 8px;
+    }
+    .contacts strong {
+      display: inline-block;
+      width: 75px;
+    }
+
+    /* Main content wrapper */
+    .main-content {
+      margin-left: 280px;
+      padding: 40px 50px;
+      flex: 1;
+      max-width: 900px;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      gap: 25px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border-bottom: 2px solid #0073b1;
+      padding-bottom: 10px;
+      margin-bottom: 40px;
+    }
+    nav a {
+      color: #0073b1;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 3px;
+      transition: color 0.3s ease;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #0073b1;
+      left: 0;
+      bottom: 0;
+      transition: width 0.3s ease;
+    }
+    nav a:hover,
+    nav a:focus {
+      color: #004a7f;
+      outline: none;
+    }
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    /* Section Titles */
+    h1, h2, h3 {
+      color: #004a7f;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      border-bottom: 3px solid #0073b1;
+      padding-bottom: 6px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background: #e6f0fa;
+      padding: 12px 18px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+      transition: background 0.3s ease;
+    }
+    h3:hover,
+    h3:focus {
+      background: #d0e2fb;
+      outline: none;
+    }
+    h3::after {
+      content: "▼";
+      font-size: 0.8rem;
+      color: #0073b1;
+      transition: transform 0.3s ease;
+    }
+    h3.active::after {
+      transform: rotate(-180deg);
+    }
+
+    /* Service Items */
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+    .service-item {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.05);
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .service-item:hover {
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.12);
+    }
+    .service-item img {
+      width: 48px;
+      margin-bottom: 15px;
+    }
+    .service-item h4 {
+      margin: 0 0 10px 0;
+      color: #004a7f;
+      font-weight: 600;
+    }
+    .service-item p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    /* Testimonials */
+    .testimonial {
+      background: white;
+      box-shadow: 0 4px 15px rgb(0 0 0 / 0.07);
+      padding: 25px 30px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .testimonial img {
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border: 3px solid #0073b1;
+      flex-shrink: 0;
+    }
+    .testimonial-content {
+      flex: 1;
+    }
+    .testimonial-content h4 {
+      margin: 0 0 5px 0;
+      color: #0073b1;
+    }
+    .testimonial-content p {
+      margin: 0;
+      font-style: italic;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    /* Resume */
+    .resume-section {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgb(0 0 0 / 0.08);
+      margin-bottom: 40px;
+    }
+    .resume-item {
+      margin-bottom: 25px;
+    }
+    .resume-item h4 {
+      margin: 0 0 6px 0;
+      color: #004a7f;
+      font-weight: 700;
+    }
+    .resume-item span {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: #666;
+    }
+    .resume-item p {
+      margin-top: 6px;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* Skills bars */
+    .skills {
+      margin-top: 20px;
+    }
+    .skill {
+      margin-bottom: 15px;
+    }
+    .skill-name {
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #0073b1;
+    }
+    .skill-bar {
+      width: 100%;
+      background: #ddd;
+      height: 14px;
+      border-radius: 7px;
+      overflow: hidden;
+    }
+    .skill-level {
+      height: 100%;
+      background: #0073b1;
+      border-radius: 7px 0 0 7px;
+      transition: width 1.2s ease-in-out;
+    }
+
+    /* Portfolio section */
+    .portfolio-categories {
+      margin-bottom: 25px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .portfolio-categories button {
+      background: #e6f0fa;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #0073b1;
+      transition: background 0.3s ease;
+    }
+    .portfolio-categories button.active,
+    .portfolio-categories button:hover {
+      background: #0073b1;
+      color: white;
+    }
+    .portfolio-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .portfolio-item {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgb(0 0 0 / 0.05);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .portfolio-item:hover {
+      transform: scale(1.05);
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+    .portfolio-item-info {
+      padding: 15px 10px;
+      text-align: center;
+      font-weight: 600;
+      color: #0073b1;
+    }
+
+    /* Blog Section */
+    #blog-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 50px 0;
+    }
+    #blog-list li {
+      background: white;
+      border-radius: 10px;
+      margin-bottom: 18px;
+      box-shadow: 0 6px 18px rgb(0 0 0 / 0.08);
+      overflow: hidden;
+      transition: box-shadow 0.3s ease;
+    }
+    #blog-list li:hover {
+      box-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
+    }
+    .blog-title {
+      margin: 0;
+      padding: 18px 22px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      cursor: pointer;
+      user-select: none;
+      background: #0073b1;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+    }
+    .blog-title:hover,
+    .blog-title:focus {
+      background: #005882;
+      outline: none;
+    }
+    .blog-title::after {
+      content: "▼";
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+      color: #b0d4ff;
+    }
+    .blog-title.active::after {
+      transform: rotate(-180deg);
+      color: #e0f0ff;
+    }
+    .blog-content {
+      padding: 15px 22px 22px;
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.5;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .blog-content.active {
+      max-height: 300px; /* Enough for content */
+      padding-top: 15px;
+    }
+
+    /* Contact Form */
+    #contact-form {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 22px rgb(0 0 0 / 0.07);
+      max-width: 500px;
+    }
+    #contact-form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #0073b1;
+    }
+    #contact-form input,
+    #contact-form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      resize: vertical;
+    }
+    #contact-form input:focus,
+    #contact-form textarea:focus {
+      border-color: #0073b1;
+      outline: none;
+      box-shadow: 0 0 10px #a4d0ffcc;
+    }
+    #contact-form button {
+      background: #0073b1;
+      color: white;
+      border: none;
+      padding: 14px 20px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    #contact-form button:hover {
+      background: #005882;
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #0073b1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e1e4e8;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        padding: 15px 20px;
+        justify-content: space-around;
+      }
+      .sidebar img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0;
+      }
+      .contacts {
+        display: none;
+      }
+      .main-content {
+        margin-left: 0;
+        padding: 30px 20px;
+        max-width: 100%;
+      }
+      nav {
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-bottom: 25px;
+      }
+      .service-list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar" aria-label="Sidebar with personal info">
+    <img src="https://i.pravatar.cc/150?img=12" alt="Richard Hanrick" />
+    <h2>Richard Hanrick</h2>
+    <p>Web Developer</p>
+    <div class="contacts" aria-label="Contact Information">
+      <h3>Contacts</h3>
+      <div><strong>Email:</strong> richard@example.com</div>
+      <div><strong>Phone:</strong> +1 (213) 352-2795</div>
+      <div><strong>Birthday:</strong> June 23, 1982</div>
+      <div><strong>Location:</strong> Sacramento, California, USA</div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <nav role="navigation" aria-label="Main navigation">
+      <a href="#about" tabindex="0">About</a>
+      <a href="#resume" tabindex="0">Resume</a>
+      <a href="#portfolio" tabindex="0">Portfolio</a>
+      <a href="#blog" tabindex="0">Blog</a>
+      <a href="#contact" tabindex="0">Contact</a>
+    </nav>
+
+    <section id="about" tabindex="0" aria-label="About me section">
+      <h2>About Me</h2>
+      <p>I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p>
+      <p>My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</p>
+
+      <h2>What I'm Doing</h2>
+      <div class="service-list" aria-label="Services offered">
+        <div class="service-item" role="region" aria-labelledby="service1">
+          <img src="https://img.icons8.com/ios-filled/50/0073b1/design--v1.png" alt="Design icon" />
+          <h4 id="service1">Web Design</h4>
+          <p>The most modern and high-quality design made at a professional level.</p>
+        </div>
+        <div class="service-item" role="region" aria-labelledby="service2">
+          <img src="https://img.icons8.com/ios-filled/50/0073b1/source-code.png" alt="Web development icon" />
+          <h4 id="service2">Web Development</h4>
+          <p>High-quality development of sites at the professional level.</p>
+        </div>
+        <div class="service-item" role="region" aria-labelledby="service3">
+          <img src="https://img.icons8.com/ios-filled/50/0073b1/mobile.png" alt="Mobile apps icon" />
+          <h4 id="service3">Mobile Apps</h4>
+          <p>Professional development of applications for iOS and Android.</p>
+        </div>
+        <div class="service-item" role="region" aria-labelledby="service4">
+          <img src="https://img.icons8.com/ios-filled/50/0073b1/camera.png" alt="Photography icon" />
+          <h4 id="service4">Photography</h4>
+          <p>I make high-quality photos of any category at a professional level.</p>
+        </div>
+      </div>
+
+      <h2>Testimonials</h2>
+      <article class="testimonial" role="article" aria-label="Testimonial from Daniel Lewis">
+        <img src="https://i.pravatar.cc/70?img=30" alt="Daniel Lewis" />
+        <div class="testimonial-content">
+          <h4>Daniel Lewis</h4>
+          <p>Richard was hired to create a corporate identity. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </article>
+      <article class="testimonial" role="article" aria-label="Testimonial from Jessica Miller">
+        <img src="https://i.pravatar.cc/70?img=32" alt="Jessica Miller" />
+        <div class="testimonial-content">
+          <h4>Jessica Miller</h4>
+          <p>Richard was hired to create a corporate identity. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </article>
+
+      <h2>Clients</h2>
+      <div aria-label="Clients logos" style="display:flex; gap: 25px; flex-wrap: wrap; justify-content: center; margin-bottom: 50px;">
+        <img src="https://via.placeholder.com/120x50?text=Client+1" alt="Client 1 Logo" />
+        <img src="https://via.placeholder.com/120x50?text=Client+2" alt="Client 2 Logo" />
+        <img src="https://via.placeholder.com/120x50?text=Client+3" alt="Client 3 Logo" />
+        <img src="https://via.placeholder.com/120x50?text=Client+4" alt="Client 4 Logo" />
+      </div>
+    </section>
+
+    <section id="resume" tabindex="0" aria-label="Resume section">
+      <h2>Resume</h2>
+      <div class="resume-section">
+        <h3 tabindex="0" class="collapsible">Education</h3>
+        <div class="content">
+          <div class="resume-item">
+            <h4>University school of the arts</h4>
+            <span>2007 — 2008</span>
+            <p>Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.</p>
+          </div>
+          <div class="resume-item">
+            <h4>New York Academy of Art</h4>
+            <span>2006 — 2007</span>
+            <p>Ratione voluptatem sequi nesciunt, facere quisquams facere menda ossimus, omnis voluptas assumenda est omnis.</p>
+          </div>
+          <div class="resume-item">
+            <h4>High School of Art and Design</h4>
+            <span>2002 — 2004</span>
+            <p>Duis aute irure dolor in reprehenderit in voluptate, quila voluptas mag odit aut fugit, sed consequuntur magni dolores eos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-section">
+        <h3 tabindex="0" class="collapsible">Experience</h3>
+        <div class="content">
+          <div class="resume-item">
+            <h4>Creative Director</h4>
+            <span>2015 — Present</span>
+            <p>Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.</p>
+          </div>
+          <div class="resume-item">
+            <h4>Art Director</h4>
+            <span>2013 — 2015</span>
+            <p>Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.</p>
+          </div>
+          <div class="resume-item">
+            <h4>Web Designer</h4>
+            <span>2010 — 2013</span>
+            <p>Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-section">
+        <h3 tabindex="0" class="collapsible">My Skills</h3>
+        <div class="content skills">
+          <div class="skill">
+            <div class="skill-name">Web Design</div>
+            <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
+          </div>
+          <div class="skill">
+            <div class="skill-name">Graphic Design</div>
+            <div class="skill-bar"><div class="skill-level" style="width: 70%;"></div></div>
+          </div>
+          <div class="skill">
+            <div class="skill-name">Branding</div>
+            <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+          </div>
+          <div class="skill">
+            <div class="skill-name">WordPress</div>
+            <div class="skill-bar"><div class="skill-level" style="width: 50%;"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-section">
+        <h3 tabindex="0" class="collapsible">Certification</h3>
+        <div class="content">
+          <p>Certified Information Security Manager (CISM)</p>
+          <p>Certified Ethical Hacker (CEH)</p>
+          <p>CompTIA Security+</p>
+        </div>
+      </div>
+
+      <div class="resume-section">
+        <h3 tabindex="0" class="collapsible">Blogs</h3>
+        <div class="content">
+          <ul id="blog-list" aria-label="Blog posts">
+            <li>
+              <h4 class="blog-title" tabindex="0">Design Conferences in 2022 <span>Design Fab 23, 2022</span></h4>
+              <div class="blog-content" aria-hidden="true">
+                <p>Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.</p>
+              </div>
+            </li>
+            <li>
+              <h4 class="blog-title" tabindex="0">Best Fonts Every Designer Should Know <span>Design Fab 23, 2022</span></h4>
+              <div class="blog-content" aria-hidden="true">
+                <p>Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.</p>
+              </div>
+            </li>
+            <li>
+              <h4 class="blog-title" tabindex="0">Design Digest #80 <span>Design Fab 23, 2022</span></h4>
+              <div class="blog-content" aria-hidden="true">
+                <p>Excepteur sint occaecat cupidatat non proident, quis nostrum exercitation ullam corporis suscipit.</p>
+              </div>
+            </li>
+            <li>
+              <h4 class="blog-title" tabindex="0">UI Interactions of the Week <span>Design Fab 23, 2022</span></h4>
+              <div class="blog-content" aria-hidden="true">
+                <p>Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.</p>
+              </div>
+            </li>
+            <li>
+              <h4 class="blog-title" tabindex="0">The Forgotten Art of Spacing <span>Design Fab 23, 2022</span></h4>
+              <div class="blog-content" aria-hidden="true">
+                <p>Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </li>
+            <li>
+              <h4 class="blog-title" tabindex="0">Design Digest #79 <span>Design Fab 23, 2022</span></h4>
+              <div class="blog-content" aria-hidden="true">
+                <p>Optio cumque nihil impedit quo minus quod maxime placeat, velit esse cillum.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio and Contact sections can be added similarly -->
+
+    <section id="contact" tabindex="0" aria-label="Contact form section">
+      <h2>Contact</h2>
+      <form id="contact-form" aria-describedby="contact-desc">
+        <p id="contact-desc">Feel free to contact me by filling out the form below.</p>
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    // Collapsible sections for resume
+    document.querySelectorAll('.collapsible').forEach(header => {
+      header.addEventListener('click', () => {
+        header.classList.toggle('active');
+        const content = header.nextElementSibling;
+        if (header.classList.contains('active')) {
