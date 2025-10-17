@@ -1,7 +1,3 @@
-Here’s a **GitHub README.md** file tailored for your portfolio website. This README explains the purpose, features, structure, and instructions clearly and professionally—ideal for showcasing your personal brand and technical skills:
-
----
-
 # 💻 Vishal Chaudhary - Cybersecurity Portfolio Website
 
 A sleek and responsive personal portfolio website built with HTML, CSS, and JavaScript to showcase the cybersecurity experience, certifications, projects, and blog of **Vishal Chaudhary**, a dedicated Cybersecurity Specialist and ISO Consultant.
