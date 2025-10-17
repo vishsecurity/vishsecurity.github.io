@@ -513,7 +513,8 @@
               blogList.classList.remove('fade-out');
               blogPost.classList.add('show');
             }, 400);
-            window.scrollTo(0, 0);
+            // better: scroll to blog post
+              document.getElementById('blog-post').scrollIntoView({ behavior: 'smooth' });
           } catch (err) {
             blogContent.innerHTML = '<p><em>Sorry, the post could not be loaded.</em></p>';
             postTitle.textContent = 'Error';
@@ -537,4 +538,5 @@
   </script>
 </body>
 </html>
+
 
