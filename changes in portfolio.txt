@@ -1,3 +1,0 @@
-1) All topics which are hovering must be link with arrow.
-2) second the person name written classify who he is.
-3) And all words written must have have a meaning otherwise remove it
