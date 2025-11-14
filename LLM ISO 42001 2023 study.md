@@ -1,7 +1,19 @@
 📘 **TINYLLAMA LOCAL AI – COMPLETE LIFECYCLE GUIDE (Ubuntu, 4GB RAM)**
-
-Covers: Installation → Onboarding → Dataset ingestion → Logging → Bias testing → Explainability → Inventory → Versioning → Monitoring → Rollback → Decommissioning → Security → Data Provenance → Human Oversight → Archival
+Covers: Installation → Onboarding → Dataset ingestion → Logging → Bias testing → Explainability → Inventory → Versioning → Monitoring → Rollback → Decommissioning → Security → Data Provenance → Human Oversight → Archival → Ethical Governance → Model Validation → Automated Compliance Packaging
 Fully ISO 42001-aligned for audit trails and internal compliance.
+
+---
+
+### 🛡 0. Responsible Use Declaration (Clause 5)
+
+Before anything else, define a short **Responsible Use Statement** at the top of the guide:
+
+```
+Responsible Use Statement:
+- This AI system is for internal document summarization, analysis, and research only.
+- Prohibited use cases: automated decision-making impacting human rights, discriminatory profiling, or external publication of sensitive data.
+- All operations comply with internal AI ethics principles and ISO 42001 Clause 5.
+```
 
 ---
 
@@ -50,7 +62,7 @@ mkdir data
 
 Place your approved documents (PDF/TXT) in `~/tinyllama_rag/data/`.
 
-**Add Data Provenance & Consent Tracking:**
+**Data Provenance & Consent Tracking:**
 Maintain a `data_manifest.json` or CSV with:
 
 * File name
@@ -132,6 +144,18 @@ Ask: Summarize ISO42001.pdf
 📸 Screenshot #2 — Data ingestion + training evidence
 📸 Screenshot #3 — LLM logging (`tinyllama.log`)
 
+**Model Validation Test Set (Clause 9.1 – Performance Evaluation):**
+Before production, run a small benchmark or factual consistency test:
+
+```python
+# simple test set
+test_prompts = ["Summarize ISO 42001.", "List key AI lifecycle steps."]
+for p in test_prompts:
+    print(query_engine.query(p))
+```
+
+Document results for audit.
+
 ---
 
 ### 🧪 6. Bias Testing Script (Bias Check Step – Clause 8.5)
@@ -169,8 +193,6 @@ for p in prompts:
 
 print(json.dumps(results, indent=4))
 ```
-
-**Expanded Bias Testing:** Include demographic and cultural prompts for broader fairness evaluation.
 
 Run:
 
@@ -265,10 +287,23 @@ sha256sum tinyllama_audit_archive_YYYYMMDD.tar.gz > archive_hash.txt
 mv archive_* /secure_backup/
 ```
 
+**Automated Documentation Packaging:** Create a script `generate_audit_artifacts.sh`:
+
+```bash
+#!/bin/bash
+tar -czf tinyllama_full_audit_$(date +%Y%m%d).tar.gz \
+  data/ logs/ CHANGELOG.md data_manifest.json rollback_report.log
+sha256sum tinyllama_full_audit_*.tar.gz > archive_hash.txt
+echo "Audit artifacts packaged successfully."
+```
+
+Run this script to generate a turnkey compliance package for auditors.
+
 ---
 
 ### ✅ 12. Summary — ISO 42001 Compliance Checklist
 
+✔ **Responsible Use Statement** (Clause 5)
 ✔ LLM Onboarding via `ollama pull tinyllama` (Inventory & onboarding evidence)
 ✔ Data Ingestion / Training via `rag.py` (Dataset ingestion evidence)
 ✔ Logging via `tinyllama.log` (Audit trail)
@@ -281,15 +316,14 @@ mv archive_* /secure_backup/
 ✔ Security & Access Control (File permissions, integrity validation)
 ✔ Data Provenance & Consent (Traceable ingestion record)
 ✔ Human Oversight (Validation of bias and explainability reports)
+✔ Model Validation Test Set (Clause 9.1 evidence)
 ✔ Archival & Retention (Audit-ready storage)
+✔ Automated Compliance Packaging (Turnkey artifact generation)
 
 🎯 This guide now satisfies:
 
 * Full AI lifecycle management
 * ISO 42001 compliance evidence
-* Explainability requirement
-* Bias testing requirement
-* Data management & provenance requirement
-* Model inventory & versioning requirement
-* Logging, monitoring, rollback, and archival requirement
+* Explainability, bias, ethics, and governance requirements
+* Versioning, monitoring, rollback, validation, and archival
 * Secure offline local deployment
