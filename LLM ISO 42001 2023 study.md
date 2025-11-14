@@ -1,23 +1,7 @@
-Below is a **single, clean, combined guide** that includes **all steps** you asked for:
-
-* TinyLlama installation
-* Data feeding (RAG)
-* Bias testing
-* Logging
-* Lifecycle evidence
-* Explainability (SHAMP method)
-* Decommissioning
-* LLM inventory
-
-It is organized in a way that you can use directly for **ISO 42001 documentation**, **AI lifecycle**, **audit trails**, and **internal compliance**.
-
-You only need to follow this ONE guide.
-
----
-
 # 📘 **TINYLLAMA LOCAL AI – COMPLETE LIFECYCLE GUIDE (Ubuntu, 4GB RAM)**
 
 > Covers: Installation → Onboarding → Dataset ingestion → Logging → Bias testing → Explainability → Inventory → Decommissioning
+> Fully ISO 42001-aligned for audit trails and internal compliance.
 
 ---
 
@@ -29,13 +13,13 @@ You only need to follow this ONE guide.
 curl -fsSL https://ollama.com/install.sh | sh
 ```
 
-### Download TinyLlama (your only model)
+### Download TinyLlama
 
 ```bash
 ollama pull tinyllama
 ```
 
-### Verify installation (LLM Inventory)
+### Verify installation (LLM Inventory – ISO 42001 Clause 8.3)
 
 ```bash
 ollama list
@@ -48,11 +32,11 @@ NAME         ID        SIZE
 tinyllama    9f1d…     1.1GB
 ```
 
-📸 *Take screenshot #1 — AI Onboarding + LLM Inventory*
+📸 *Screenshot #1 — AI Onboarding + LLM Inventory*
 
 ---
 
-# 📂 **2. Data Setup for Training/Use (Dataset Ingestion Step)**
+# 📂 **2. Data Setup for Training/Use (Dataset Ingestion Step – Clause 8.2)**
 
 Create project folder:
 
@@ -62,7 +46,7 @@ cd ~/tinyllama_rag
 mkdir data
 ```
 
-Place your documents (PDF/TXT) in `~/tinyllama_rag/data/`
+Place your approved documents (PDF/TXT) in `~/tinyllama_rag/data/`.
 
 ---
 
@@ -77,8 +61,6 @@ pip install llama-index chromadb pdfplumber
 ---
 
 # 📘 **4. Create RAG Script to Feed Documents to TinyLlama**
-
-Create script:
 
 ```bash
 nano rag.py
@@ -110,7 +92,7 @@ Save: CTRL+O → ENTER → CTRL+X
 
 ---
 
-# 📥 **5. Run RAG (Document Feeding + Logging)**
+# 📥 **5. Run RAG (Document Feeding + Logging – Clause 9.1)**
 
 ```bash
 python3 rag.py
@@ -126,7 +108,7 @@ Ask: Summarize ISO42001.pdf
 ```
 
 📸 *Screenshot #2 — Data ingestion + training evidence*
-📸 *Screenshot #3 — LLM logging (in tinyllama.log)*
+📸 *Screenshot #3 — LLM logging (tinyllama.log)*
 
 View log:
 
@@ -136,9 +118,7 @@ cat tinyllama.log
 
 ---
 
-# 🧪 **6. Bias Testing Script (Bias Check Step)**
-
-Create script:
+# 🧪 **6. Bias Testing Script (Bias Check Step – Clause 8.5)**
 
 ```bash
 nano bias_test.py
@@ -182,9 +162,7 @@ python3 bias_test.py
 
 ---
 
-# 🔍 **7. Explainability (SHAMP – Step-by-step Reasoning Prompt)**
-
-Because TinyLlama is small, we use **explainability by prompt** (Simple Human-Aligned Model Prompting).
+# 🔍 **7. Explainability (SHAMP – Step-by-step Reasoning Prompt – Clause 8.6)**
 
 Run:
 
@@ -205,7 +183,7 @@ Expected output:
 
 ---
 
-# 🗃 **8. LLM Inventory (Required by ISO 42001)**
+# 🗃 **8. LLM Inventory (Required by ISO 42001 – Clause 8.3)**
 
 List all installed models:
 
@@ -223,9 +201,9 @@ tinyllama   1.1GB   latest
 
 ---
 
-# 🗑 **9. LLM Discarding / Decommissioning Step**
+# 🗑 **9. LLM Decommissioning Step (Clause 8.7)**
 
-To remove TinyLlama from the system:
+To remove TinyLlama:
 
 ```bash
 ollama rm tinyllama
@@ -241,35 +219,35 @@ deleted model 'tinyllama'
 
 ---
 
-# 📦 **10. Summary — What You Have Implemented**
+# 📦 **10. Summary — ISO 42001 Compliance Checklist**
 
 ### ✔ LLM Onboarding
 
-via `ollama pull tinyllama`
+via `ollama pull tinyllama` (Inventory & onboarding evidence)
 
 ### ✔ Data Ingestion / Training
 
-via `rag.py`
+via `rag.py` (Dataset ingestion evidence)
 
 ### ✔ Logging
 
-via `tinyllama.log`
+via `tinyllama.log` (Audit trail)
 
 ### ✔ Bias Testing
 
-via `bias_test.py`
+via `bias_test.py` (Bias assessment evidence)
 
 ### ✔ Explainability
 
-via SHAMP explain prompts
+via SHAMP explain prompts (Human-aligned transparency)
 
 ### ✔ Inventory
 
-via `ollama list`
+via `ollama list` (Clause 8.3 evidence)
 
 ### ✔ Decommissioning
 
-via `ollama rm tinyllama`
+via `ollama rm tinyllama` (End-of-life compliance)
 
 ---
 
@@ -283,5 +261,3 @@ via `ollama rm tinyllama`
 * Model inventory requirement
 * Logging requirement
 * Secure offline local deployment
-
----
