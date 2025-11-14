@@ -285,15 +285,3 @@ via `ollama rm tinyllama`
 * Secure offline local deployment
 
 ---
-
-# If you want, I can also provide:
-
-### ✔ A PDF version of this guide
-
-### ✔ Templates for ISO 42001 documentation
-
-### ✔ Automated scripts to capture screenshots
-
-### ✔ A supervisor dashboard (web UI)
-
-Just tell me **“PDF”, “dashboard”, or “templates”**.
