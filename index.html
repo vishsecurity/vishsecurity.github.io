@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vishal Chaudhary | Cybersecurity Specialist & Blog</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
   <style>
     /* ===== Preloader ===== */
     #preloader {
@@ -16,11 +17,9 @@
       align-items: center;
       justify-content: center;
       z-index: 9999;
-      transition: opacity 0.5s ease;
     }
     #preloader .spinner {
-      width: 50px;
-      height: 50px;
+      width: 50px; height: 50px;
       border: 5px solid #ddd;
       border-top: 5px solid #0051ff;
       border-radius: 50%;
@@ -28,7 +27,7 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ===== Dark mode variables ===== */
+    /* ===== Theme Variables ===== */
     :root {
       --bg-color: #f4f7fa;
       --text-color: #333;
@@ -48,7 +47,7 @@
       --shadow-color: rgba(0,0,0,0.5);
     }
 
-    /* ===== Base & layout ===== */
+    /* ===== Base Styles ===== */
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -61,8 +60,15 @@
       display: flex;
       flex-direction: column;
     }
-    a { color: var(--link-color); text-decoration: none; font-weight: 600; }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
     a:hover { text-decoration: underline; }
+
+    /* Container */
     .container {
       max-width: 900px;
       margin: 2rem auto 4rem;
@@ -76,13 +82,36 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    header { text-align: center; margin-bottom: 3rem; }
-    header h1 { font-weight: 700; font-size: 2.5rem; margin-bottom: 0.2rem; color: var(--text-color); min-height: 3rem; }
-    header p { font-weight: 500; color: var(--text-color); margin-bottom: 1rem; }
-    nav { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 2rem; }
-    nav a, nav button { padding: 0.5rem 1rem; border-radius: 5px; background: var(--section-bg); transition: background-color 0.25s, color 0.25s; }
-    nav a:hover { background: var(--link-color); color: var(--bg-color); }
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 0.2rem;
+      min-height: 3rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    nav a {
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      background: var(--section-bg);
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+    nav a:hover {
+      background: var(--link-color);
+      color: var(--bg-color);
+    }
 
+    /* Sections */
     section {
       margin-bottom: 3rem;
       background: var(--section-bg);
@@ -93,272 +122,357 @@
       transform: translateY(30px);
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-    section.visible { opacity: 1; transform: translateY(0); }
-    section h2 { margin-top: 0; margin-bottom: 1rem; font-weight: 700; font-size: 1.8rem; display: flex; align-items: center; gap: 0.5rem; color: var(--text-color); }
-    section p { font-size: 1.05rem; color: var(--text-color); }
+    section.visible {
+      opacity: 1; transform: translateY(0);
+    }
+    section h2 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
     ul { list-style: none; padding-left: 0; margin: 0; }
-    ul li { padding: 0.5rem 0; border-bottom: 1px solid #eee; font-weight: 600; color: var(--text-color); }
+    ul li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+      font-weight: 600;
+    }
     ul li:last-child { border-bottom: none; }
 
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; }
+    /* Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
     .card {
       background: var(--card-bg);
       border-radius: 8px;
       padding: 0.7rem 1rem;
       font-weight: 600;
-      color: var(--link-color);
       text-align: center;
-      cursor: default;
-      user-select: none;
       box-shadow: 0 2px 5px var(--shadow-color);
-      transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      transition: 0.3s ease;
     }
-    .card:hover { background: var(--card-hover-bg); transform: scale(1.05); box-shadow: 0 8px 20px var(--shadow-color); }
+    .card:hover {
+      background: var(--card-hover-bg);
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px var(--shadow-color);
+    }
 
-    /* Blog styles */
-    #blog-list ul { padding-left: 1.2rem; }
-    #blog-list ul li { cursor: pointer; color: var(--link-color); }
+    /* Blog list */
+    #blog-list ul {
+      padding-left: 1.2rem;
+    }
+    #blog-list ul li {
+      padding: 0.5rem 0;
+      font-weight: 600;
+      color: var(--link-color);
+      cursor: pointer;
+    }
     #blog-list ul li:hover { text-decoration: underline; }
-    #blog-post { opacity: 0; visibility: hidden; transition: opacity 0.4s, visibility 0.4s; }
-    #blog-post.show { opacity: 1; visibility: visible; }
-    #blog-list.fade-out { opacity: 0; transition: opacity 0.4s; }
-    #blog-post button#close-post { background: none; border: none; color: var(--link-color); cursor: pointer; font-weight: 600; margin-bottom: 1rem; font-size: 1rem; padding: 0; transition: transform 0.1s ease; }
-    #blog-post button#close-post:hover { text-decoration: underline; }
-    #blog-post button#close-post:active { transform: scale(0.95); }
-    #blog-post h1#post-title { font-size: 2rem; margin-bottom: 1rem; color: var(--text-color); }
-    #blog-content { font-size: 1.1rem; line-height: 1.7; color: var(--text-color); }
-    #blog-content p { margin-bottom: 1rem; }
-    #blog-content h2, #blog-content h3 { margin-top: 1.5rem; margin-bottom: 1rem; color: var(--link-color); }
-    #blog-content pre { background: #282c34; color: #f8f8f2; padding: 1rem; border-radius: 8px; overflow-x: auto; }
-    #blog-content code { background: #eaeaea; padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.95rem; }
 
-    footer { text-align: center; padding: 1.5rem 0; background: #222; color: #eee; font-weight: 500; }
+    /* Blog post */
+    #blog-post {
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+    #blog-post.show {
+      opacity: 1; visibility: visible;
+    }
+    #close-post {
+      background: none; border: none;
+      color: var(--link-color);
+      cursor: pointer;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    #close-post:hover { text-decoration: underline; }
+
+    #blog-content {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    #blog-content pre {
+      background: #282c34;
+      color: #f8f8f2;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    /* Typing Cursor */
+    @keyframes blink {
+      0%,100% { border-right-color: transparent; }
+      50% { border-right-color: var(--text-color); }
+    }
+    .typing {
+      display: inline-block;
+      border-right: 2px solid var(--text-color);
+      animation: blink 0.7s infinite;
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: #eee;
+      text-align: center;
+      padding: 1.5rem 0;
+      font-weight: 500;
+      margin-top: 3rem;
+    }
 
     @media (max-width: 600px) {
       nav { flex-direction: column; gap: 0.5rem; }
       .card-grid { grid-template-columns: 1fr; }
     }
-
-    /* Typing cursor */
-    @keyframes blinkCursor { 0%, 100% { border-right-color: transparent; } 50% { border-right-color: var(--text-color); } }
-    .typing { display: inline-block; white-space: nowrap; border-right: 2px solid var(--text-color); animation: blinkCursor 0.7s steps(1) infinite; }
   </style>
 </head>
+
 <body>
 
-  <!-- Preloader -->
-  <div id="preloader">
-    <div class="spinner"></div>
-  </div>
+<!-- Preloader -->
+<div id="preloader"><div class="spinner"></div></div>
 
-  <header>
-    <h1 id="typed-header"></h1>
-    <p>Cybersecurity Specialist • Risk Assessor • ISO Consultant</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#recommendation">Recommendation</a>
-      <a href="#blog-list">Blog</a>
-      <button id="dark-toggle">🌙</button>
-    </nav>
-  </header>
+<header>
+  <h1 id="typed-header"></h1>
+  <p>Cybersecurity Specialist • Risk Assessor • ISO Consultant</p>
 
-  <main class="container">
-    <!-- About -->
-    <section id="about">
-      <h2>🙋 About Me</h2>
-      <p>Experienced Information Security Specialist with a solid background in ISO 27001 implementation, risk assessment, and project management...</p>
-    </section>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#recommendation">Recommendation</a>
+    <a href="#blog-list">Blog</a>
 
-    <!-- Projects -->
-    <section id="projects">
-      <h2>🚀 Projects & Domains</h2>
-      <ul class="card-grid">
-        <li class="card">ISO 27001</li>
-        <li class="card">ISO 27701</li>
-        <li class="card">Incident Response Readiness (800-53, 800-61)</li>
-        <li class="card">RBI DL SAR</li>
-        <li class="card">RBI DPSC</li>
-        <li class="card">RBI IT Outsourcing</li>
-        <li class="card">RBI ITGC</li>
-        <li class="card">SEBI CSF</li>
-        <li class="card">UIDAI AUA/KUA</li>
-        <li class="card">PCI DSS 4.1</li>
-        <li class="card">Cybersecurity – Thermal Power Plant (CPA)</li>
-      </ul>
-    </section>
+    <button id="dark-toggle" 
+      style="border:none;background:none;cursor:pointer;font-size:1rem;margin-left:1rem;">
+      🌙
+    </button>
+  </nav>
+</header>
 
-    <!-- Experience -->
-    <section id="experience">
-      <h2>💼 Experience</h2>
-      <ul>
-        <li><strong>Associate Cyber Security - ITGRC</strong><br>Confidential | Jun 2025 – Present | Noida, India</li>
-        <li><strong>Information Security Consultant</strong><br>eSec Forte® Technologies | Apr 2024 – May 2025 | Gurugram, India</li>
-        <li><strong>Cyber Security Engineer</strong><br>Panacea Infosec Pvt Ltd | Apr 2023 – Mar 2024 | Delhi, India</li>
-        <li><strong>Associate Cybersecurity Engineer</strong><br>Panacea Infosec Pvt Ltd | Apr 2022 – Apr 2023 | Delhi, India</li>
-        <li><strong>NOC / Incident Management</strong><br>Spectra | Nov 2021 – Mar 2022 | Gurugram, India</li>
-      </ul>
-    </section>
+<main class="container">
 
-    <!-- Education -->
-    <section id="education">
-      <h2>🎓 Education</h2>
-      <ul>
-        <li><strong>Krishna Engineering College</strong><br>B.Tech in Electrical & Electronics Engineering (2014–2018)</li>
-        <li><strong>St. Mary Christian School</strong><br>12th, Science (2012–2014)</li>
-        <li><strong>St. Joseph's Academy</strong><br>10th, Science (1995–2012)</li>
-      </ul>
-    </section>
+<section id="about">
+  <h2>🙋 About Me</h2>
+  <p>
+    Experienced Information Security Specialist with a solid background in ISO 27001 implementation,
+    risk assessment, and project management. Proven expertise in designing and deploying Information
+    Security Management Systems (ISMS) and ensuring regulatory compliance across multiple standards.
+    Known for strong communication, stakeholder engagement, and audit readiness. I bring a
+    solution-oriented approach to cybersecurity and governance frameworks.
+  </p>
+</section>
 
-    <!-- Certifications -->
-    <section id="certifications">
-      <h2>📜 Certifications</h2>
-      <ul class="card-grid">
-        <li class="card">Certified Cloud Security Practitioner – The SecOps Group</li>
-        <li class="card">Certified AppSec Practitioner – The SecOps Group</li>
-        <li class="card">Certified in Cybersecurity – (ISC)²</li>
-        <li class="card">AWS Well-Architected – Amazon Web Services</li>
-        <li class="card">EDR – Qualys</li>
-        <li class="card">Fortinet NSE Level 2 – Fortinet</li>
-        <li class="card">Splunk UBA – Splunk NYC</li>
-        <li class="card">CCNP Routing & Switching – Network Bulls</li>
-        <li class="card">CCNA Routing & Switching – Cisco</li>
-        <li class="card">Securiti PrivacyOps</li>
-        <li class="card">Securiti AI Privacy & Governance</li>
-      </ul>
-    </section>
+<section id="projects">
+  <h2>🚀 Projects & Domains</h2>
+  <ul class="card-grid">
+    <li class="card">ISO 27001</li>
+    <li class="card">ISO 27701</li>
+    <li class="card">Incident Response Readiness (800-53, 800-61)</li>
+    <li class="card">RBI DL SAR</li>
+    <li class="card">RBI DPSC</li>
+    <li class="card">RBI IT Outsourcing</li>
+    <li class="card">RBI ITGC</li>
+    <li class="card">SEBI CSF</li>
+    <li class="card">UIDAI AUA/KUA</li>
+    <li class="card">PCI DSS 4.1</li>
+    <li class="card">Cybersecurity – Thermal Power Plant (CPA)</li>
+  </ul>
+</section>
 
-    <!-- Recommendation -->
-    <section id="recommendation">
-      <h2>🗣️ Recommendation</h2>
-      <blockquote style="font-style: italic; color: #555; border-left: 4px solid var(--link-color); padding-left: 1rem;">
-        “Vishal is an exceptional colleague in cybersecurity...”
-        <br><br>
-        <footer>– Shubham Kumar, IT Analyst Panacea Infosec</footer>
-      </blockquote>
-    </section>
+<section id="experience">
+  <h2>💼 Experience</h2>
+  <ul>
+    <li><strong>Associate Cyber Security - ITGRC</strong><br>Confidential | Jun 2025 – Present | Noida, India</li>
+    <li><strong>Information Security Consultant</strong><br>eSec Forte® Technologies | Apr 2024 – May 2025 | Gurugram, India</li>
+    <li><strong>Cyber Security Engineer</strong><br>Panacea Infosec Pvt Ltd | Apr 2023 – Mar 2024 | Delhi, India</li>
+    <li><strong>Associate Cybersecurity Engineer</strong><br>Panacea Infosec Pvt Ltd | Apr 2022 – Apr 2023 | Delhi, India</li>
+    <li><strong>NOC / Incident Management</strong><br>Spectra | Nov 2021 – Mar 2022 | Gurugram, India</li>
+  </ul>
+</section>
+<section id="education">
+  <h2>🎓 Education</h2>
+  <ul>
+    <li><strong>Krishna Engineering College</strong><br>B.Tech in Electrical & Electronics Engineering (2014–2018)</li>
+    <li><strong>St. Mary Christian School</strong><br>12th, Science (2012–2014)</li>
+    <li><strong>St. Joseph's Academy</strong><br>10th, Science (1995–2012)</li>
+  </ul>
+</section>
 
-    <!-- Blog List -->
-    <section id="blog-list">
-      <h2>📝 Blog</h2>
-      <ul id="blog-links"></ul>
-    </section>
+<section id="certifications">
+  <h2>📜 Certifications</h2>
+  <ul class="card-grid">
+    <li class="card">Certified Cloud Security Practitioner – The SecOps Group</li>
+    <li class="card">Certified AppSec Practitioner – The SecOps Group</li>
+    <li class="card">Certified in Cybersecurity – (ISC)²</li>
+    <li class="card">AWS Well-Architected – Amazon Web Services</li>
+    <li class="card">EDR – Qualys</li>
+    <li class="card">Fortinet NSE Level 2 – Fortinet</li>
+    <li class="card">Splunk UBA – Splunk NYC</li>
+    <li class="card">CCNP Routing & Switching – Network Bulls</li>
+    <li class="card">CCNA Routing & Switching – Cisco</li>
+    <li class="card">Securiti PrivacyOps</li>
+    <li class="card">Securiti AI Privacy & Governance</li>
+  </ul>
+</section>
 
-    <!-- Blog Post -->
-    <section id="blog-post">
-      <button id="close-post">← Back to Blog</button>
-      <h1 id="post-title"></h1>
-      <article id="blog-content">Loading...</article>
-    </section>
-  </main>
+<section id="recommendation">
+  <h2>🗣️ Recommendation</h2>
+  <blockquote style="font-style:italic; color:#555; border-left:4px solid var(--link-color); padding-left:1rem;">
+    “Vishal is an exceptional colleague in the field of cybersecurity, demonstrating profound
+    expertise in threat analysis, risk assessment, and incident response. With a proven track record
+    of implementing robust security measures, he consistently stays ahead of emerging cyber threats.
+    Vishal's analytical mindset and strong problem-solving skills make him a valuable asset in
+    identifying and mitigating vulnerabilities. His effective communication and collaboration skills
+    foster a seamless integration of security protocols within the organization. Vishal's
+    commitment to staying current with industry trends ensures that our cybersecurity
+    infrastructure remains cutting-edge and resilient.”
+    <br><br>
+    <footer>– Shubham Kumar</footer>
+  </blockquote>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Vishal Chaudhary. All rights reserved.</p>
-  </footer>
+<section id="blog-list">
+  <h2>📝 Blog</h2>
+  <ul id="blog-links"></ul>
+</section>
 
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    // Preloader
-    window.addEventListener('load', () => {
-      const pre = document.getElementById('preloader');
-      pre.style.opacity = 0;
-      setTimeout(() => pre.style.display = 'none', 500);
-    });
+<section id="blog-post">
+  <button id="close-post">← Back to Blog</button>
+  <h1 id="post-title"></h1>
+  <article id="blog-content">Loading...</article>
+</section>
 
-    // Typing effect
-    const headerText = "Vishal Chaudhary";
-    let typedIndex = 0;
-    function typeHeader() {
-      const el = document.getElementById('typed-header');
-      if (typedIndex < headerText.length) {
-        el.innerHTML += headerText.charAt(typedIndex);
-        typedIndex++;
-        setTimeout(typeHeader, 150);
-      } else { el.classList.remove('typing'); }
+</main>
+
+<footer>
+  <p>&copy; 2025 Vishal Chaudhary. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script>
+/* ---------------- PRELOADER ---------------- */
+window.addEventListener('load', () => {
+  const pre = document.getElementById('preloader');
+  pre.style.opacity = 0;
+  setTimeout(() => pre.style.display = 'none', 500);
+});
+
+/* ---------------- TYPING EFFECT ---------------- */
+const headerText = "Vishal Chaudhary";
+let typedIndex = 0;
+
+function typeHeader() {
+  const el = document.getElementById('typed-header');
+  if (typedIndex < headerText.length) {
+    el.innerHTML += headerText.charAt(typedIndex);
+    typedIndex++;
+    setTimeout(typeHeader, 150);
+  } else {
+    el.classList.remove('typing');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('typed-header').classList.add('typing');
+  typeHeader();
+
+  /* ---------------- DARK MODE ---------------- */
+  const toggle = document.getElementById('dark-toggle');
+  toggle.addEventListener('click', () => {
+    const htmlEl = document.documentElement;
+    if (htmlEl.getAttribute('data-theme') === 'dark') {
+      htmlEl.removeAttribute('data-theme');
+      toggle.innerText = '🌙';
+    } else {
+      htmlEl.setAttribute('data-theme', 'dark');
+      toggle.innerText = '☀️';
     }
+  });
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const typedEl = document.getElementById('typed-header');
-      typedEl.classList.add('typing');
-      typeHeader();
-
-      // Dark mode toggle
-      const toggle = document.getElementById('dark-toggle');
-      toggle.addEventListener('click', () => {
-        const htmlEl = document.documentElement;
-        if (htmlEl.getAttribute('data-theme') === 'dark') {
-          htmlEl.removeAttribute('data-theme'); toggle.innerText = '🌙';
-        } else {
-          htmlEl.setAttribute('data-theme', 'dark'); toggle.innerText = '☀️';
-        }
-      });
-
-      // Scroll-trigger animation
-      const sections = document.querySelectorAll('section');
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible'); obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15 });
-      sections.forEach(sec => observer.observe(sec));
-
-      // Blog logic
-      const blogPosts = [
-        { title: "DPDPA 2025", filename: "DPDPA.md" },
-        { title: "SOC 2 Type 2 Mapping with GDPR and PIMS", filename: "SOC2.md" },
-        { title: "LLM study with ISO 42001 2023 Audit", filename: "LLM ISO 42001 2023 study.md" }
-      ];
-      const blogLinks = document.getElementById('blog-links');
-      const blogList = document.getElementById('blog-list');
-      const blogPost = document.getElementById('blog-post');
-      const postTitle = document.getElementById('post-title');
-      const blogContent = document.getElementById('blog-content');
-      const closePost = document.getElementById('close-post');
-
-      blogPosts.forEach(post => {
-        const li = document.createElement('li');
-        li.textContent = post.title;
-        li.addEventListener('click', async () => {
-          try {
-            const resp = await fetch(`blogs/${post.filename}`);
-            if (!resp.ok) throw new Error('Failed to fetch');
-            const md = await resp.text();
-            blogContent.innerHTML = marked.parse(md);
-            const firstHdr = md.match(/^# (.*)/m);
-            postTitle.textContent = firstHdr ? firstHdr[1] : post.title;
-
-            blogList.classList.add('fade-out');
-            setTimeout(() => {
-              blogList.style.display = 'none';
-              blogList.classList.remove('fade-out');
-              blogPost.classList.add('show');
-              blogPost.scrollIntoView({ behavior: 'smooth' });
-            }, 400);
-          } catch (err) {
-            blogContent.innerHTML = '<p><em>Sorry, the post could not be loaded.</em></p>';
-            postTitle.textContent = 'Error';
-            blogList.style.display = 'none';
-            blogPost.classList.add('show');
-          }
-        });
-        blogLinks.appendChild(li);
-      });
-
-      closePost.addEventListener('click', () => {
-        blogPost.classList.remove('show');
-        setTimeout(() => {
-          blogPost.style.opacity = 0;
-          blogPost.style.visibility = 'hidden';
-          blogList.style.display = 'block';
-          blogList.scrollIntoView({ behavior: 'smooth' });
-        }, 300);
-      });
+  /* ---------------- SCROLL SECTION ANIMATION ---------------- */
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
     });
-  </script>
+  }, { threshold: 0.15 });
+
+  sections.forEach(sec => observer.observe(sec));
+  /* ---------------- BLOG SYSTEM ---------------- */
+  const blogPosts = [
+    { title: "DPDPA 2025", filename: "DPDPA.md" },
+    { title: "SOC 2 Type 2 Maaping with GDPR and PIMS", filename: "SOC2.md" }
+  ];
+
+  const blogLinks = document.getElementById('blog-links');
+  const blogList = document.getElementById('blog-list');
+  const blogPost = document.getElementById('blog-post');
+  const postTitle = document.getElementById('post-title');
+  const blogContent = document.getElementById('blog-content');
+  const closePost = document.getElementById('close-post');
+
+  blogPosts.forEach(post => {
+    const li = document.createElement('li');
+    li.textContent = post.title;
+    li.style.cursor = 'pointer';
+    li.style.color = 'var(--link-color)';
+
+    li.addEventListener('click', async () => {
+      try {
+        const resp = await fetch(`blogs/${post.filename}`);
+        if (!resp.ok) throw new Error('Failed');
+
+        const md = await resp.text();
+        blogContent.innerHTML = marked.parse(md);
+
+        const firstHeader = md.match(/^# (.*)/m);
+        postTitle.textContent = firstHeader ? firstHeader[1] : post.title;
+
+        blogList.classList.add('fade-out');
+        setTimeout(() => {
+          blogList.style.display = 'none';
+          blogList.classList.remove('fade-out');
+          blogPost.classList.add('show');
+        }, 400);
+
+        document.getElementById('blog-post').scrollIntoView({ behavior: 'smooth' });
+
+      } catch (err) {
+        blogContent.innerHTML = "<p><em>Sorry, the post could not be loaded.</em></p>";
+        postTitle.textContent = "Error";
+        blogList.style.display = "none";
+        blogPost.classList.add("show");
+      }
+    });
+
+    blogLinks.appendChild(li);
+  });
+
+  closePost.addEventListener('click', () => {
+    blogPost.classList.remove('show');
+    setTimeout(() => {
+      blogPost.style.opacity = 0;
+      blogPost.style.visibility = 'hidden';
+      blogList.style.display = 'block';
+      window.scrollTo(0, 0);
+    }, 400);
+  });
+});
+</script>
+
 </body>
 </html>
