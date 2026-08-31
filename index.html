@@ -1,478 +1,699 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vishal Chaudhary | Cybersecurity Specialist & Blog</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishal Chaudhary | Technical GRC & Security Architecture Consultant</title>
+    <!-- Material Symbols Outlined -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- Google Fonts: Roboto & Inter for Material Design 3 Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            /* Material Design 3 Dark Palette Tokens */
+            --md-sys-color-bg: #0f141c;
+            --md-sys-color-surface: #131b26;
+            --md-sys-color-surface-container: #1b2432;
+            --md-sys-color-surface-container-high: #232d3f;
+            --md-sys-color-primary: #a0caef;
+            --md-sys-color-on-primary: #003258;
+            --md-sys-color-primary-container: #00497d;
+            --md-sys-color-on-primary-container: #d1e4ff;
+            --md-sys-color-secondary: #6ee7b7;
+            --md-sys-color-on-secondary: #003822;
+            --md-sys-color-secondary-container: #005234;
+            --md-sys-color-on-secondary-container: #8cf4d3;
+            --md-sys-color-error: #ffb4ab;
+            --md-sys-color-on-surface: #e2e8f0;
+            --md-sys-color-on-surface-variant: #94a3b8;
+            --md-sys-color-outline: #334155;
+            
+            /* Material Motion & Shapes */
+            --md-shape-corner-small: 8px;
+            --md-shape-corner-medium: 16px;
+            --md-shape-corner-large: 24px;
+            --md-shape-corner-full: 9999px;
+            --md-transition: cubic-bezier(0.2, 0.0, 0.0, 1.0) 0.3s;
+            --md-elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+            --md-elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+        }
 
-  <style>
-    /* ===== Preloader ===== */
-    #preloader {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-    #preloader .spinner {
-      width: 50px; height: 50px;
-      border: 5px solid #ddd;
-      border-top: 5px solid #0051ff;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
+        [data-theme="light"] {
+            /* Material Design 3 Light Palette Tokens */
+            --md-sys-color-bg: #f8fafc;
+            --md-sys-color-surface: #ffffff;
+            --md-sys-color-surface-container: #edf2f7;
+            --md-sys-color-surface-container-high: #e2e8f0;
+            --md-sys-color-primary: #0061a4;
+            --md-sys-color-on-primary: #ffffff;
+            --md-sys-color-primary-container: #d1e4ff;
+            --md-sys-color-on-primary-container: #001d36;
+            --md-sys-color-secondary: #006c47;
+            --md-sys-color-on-secondary: #ffffff;
+            --md-sys-color-secondary-container: #8cf4d3;
+            --md-sys-color-on-secondary-container: #002113;
+            --md-sys-color-error: #ba1a1a;
+            --md-sys-color-on-surface: #0f172a;
+            --md-sys-color-on-surface-variant: #475569;
+            --md-sys-color-outline: #cbd5e1;
+            --md-elevation-1: 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 1px 2px -1px rgba(0, 0, 0, 0.1);
+            --md-elevation-2: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
 
-    /* ===== Theme Variables ===== */
-    :root {
-      --bg-color: #f4f7fa;
-      --text-color: #333;
-      --section-bg: #ffffff;
-      --card-bg: #f0f4ff;
-      --card-hover-bg: #dbe4ff;
-      --link-color: #0051ff;
-      --shadow-color: rgba(0,0,0,0.08);
-    }
-    [data-theme="dark"] {
-      --bg-color: #121216;
-      --text-color: #e0e0e0;
-      --section-bg: #1e1e25;
-      --card-bg: #2a2a36;
-      --card-hover-bg: #3a3a48;
-      --link-color: #58a6ff;
-      --shadow-color: rgba(0,0,0,0.5);
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
 
-    /* ===== Base Styles ===== */
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0; padding: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    a {
-      color: var(--link-color);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    a:hover { text-decoration: underline; }
+        body {
+            background-color: var(--md-sys-color-bg);
+            color: var(--md-sys-color-on-surface);
+            line-height: 1.6;
+            transition: background-color 0.3s var(--md-transition), color 0.3s var(--md-transition);
+        }
 
-    /* Container */
-    .container {
-      max-width: 900px;
-      margin: 2rem auto 4rem;
-      padding: 0 1rem;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s forwards ease-out;
-      animation-delay: 0.3s;
-    }
-    @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
 
-    /* Header */
-    header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    header h1 {
-      font-weight: 700;
-      font-size: 2.5rem;
-      margin-bottom: 0.2rem;
-      min-height: 3rem;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-    nav a {
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      background: var(--section-bg);
-      transition: background-color 0.25s ease, color 0.25s ease;
-    }
-    nav a:hover {
-      background: var(--link-color);
-      color: var(--bg-color);
-    }
+        .bg-alt {
+            background-color: var(--md-sys-color-surface);
+        }
 
-    /* Sections */
-    section {
-      margin-bottom: 3rem;
-      background: var(--section-bg);
-      border-radius: 12px;
-      padding: 1.5rem 2rem;
-      box-shadow: 0 4px 12px var(--shadow-color);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    section.visible {
-      opacity: 1; transform: translateY(0);
-    }
-    section h2 {
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      font-size: 1.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+        /* Material Top App Bar */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(19, 27, 38, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--md-sys-color-outline);
+            z-index: 1000;
+        }
 
-    ul { list-style: none; padding-left: 0; margin: 0; }
-    ul li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #eee;
-      font-weight: 600;
-    }
-    ul li:last-child { border-bottom: none; }
+        [data-theme="light"] header {
+            background: rgba(255, 255, 255, 0.85);
+        }
 
-    /* Cards */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1rem;
-    }
-    .card {
-      background: var(--card-bg);
-      border-radius: 8px;
-      padding: 0.7rem 1rem;
-      font-weight: 600;
-      text-align: center;
-      box-shadow: 0 2px 5px var(--shadow-color);
-      transition: 0.3s ease;
-    }
-    .card:hover {
-      background: var(--card-hover-bg);
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px var(--shadow-color);
-    }
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+        }
 
-    /* Blog list */
-    #blog-list ul {
-      padding-left: 1.2rem;
-    }
-    #blog-list ul li {
-      padding: 0.5rem 0;
-      font-weight: 600;
-      color: var(--link-color);
-      cursor: pointer;
-    }
-    #blog-list ul li:hover { text-decoration: underline; }
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--md-sys-color-primary);
+            text-decoration: none;
+            letter-spacing: -0.2px;
+        }
 
-    /* Blog post */
-    #blog-post {
-      opacity: 0; visibility: hidden;
-      transition: opacity 0.4s ease, visibility 0.4s ease;
-    }
-    #blog-post.show {
-      opacity: 1; visibility: visible;
-    }
-    #close-post {
-      background: none; border: none;
-      color: var(--link-color);
-      cursor: pointer;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    #close-post:hover { text-decoration: underline; }
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
-    #blog-content {
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-    #blog-content pre {
-      background: #282c34;
-      color: #f8f8f2;
-      padding: 1rem;
-      border-radius: 8px;
-      overflow-x: auto;
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 16px;
+            align-items: center;
+        }
 
-    /* Typing Cursor */
-    @keyframes blink {
-      0%,100% { border-right-color: transparent; }
-      50% { border-right-color: var(--text-color); }
-    }
-    .typing {
-      display: inline-block;
-      border-right: 2px solid var(--text-color);
-      animation: blink 0.7s infinite;
-    }
+        nav a {
+            color: var(--md-sys-color-on-surface-variant);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: var(--md-shape-corner-full);
+            transition: background 0.2s, color 0.2s;
+        }
 
-    /* Footer */
-    footer {
-      background: #222;
-      color: #eee;
-      text-align: center;
-      padding: 1.5rem 0;
-      font-weight: 500;
-      margin-top: 3rem;
-    }
+        nav a:hover {
+            color: var(--md-sys-color-primary);
+            background: var(--md-sys-color-surface-container-high);
+        }
 
-    @media (max-width: 600px) {
-      nav { flex-direction: column; gap: 0.5rem; }
-      .card-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+        .theme-toggle {
+            background: var(--md-sys-color-surface-container-high);
+            border: 1px solid var(--md-sys-color-outline);
+            color: var(--md-sys-color-on-surface);
+            padding: 8px 16px;
+            border-radius: var(--md-shape-corner-full);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s;
+        }
+
+        .theme-toggle:hover {
+            background: var(--md-sys-color-surface-container);
+        }
+
+        /* Material Hero Section */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 140px 20px 60px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .badge-group {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        /* Material Chips */
+        .badge {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+            padding: 6px 16px;
+            border-radius: var(--md-shape-corner-small);
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .badge-alt {
+            background: var(--md-sys-color-secondary-container);
+            color: var(--md-sys-color-on-secondary-container);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            min-height: 3.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            color: var(--md-sys-color-on-surface-variant);
+            font-size: 1.15rem;
+            margin-bottom: 36px;
+        }
+
+        /* Material Buttons */
+        .btn-primary, .btn-secondary, .btn-consult {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: var(--md-shape-corner-full);
+            text-decoration: none;
+            font-weight: 500;
+            margin: 6px;
+            box-shadow: var(--md-elevation-1);
+            transition: transform 0.2s var(--md-transition), box-shadow 0.2s var(--md-transition), background 0.2s;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover, .btn-consult:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--md-elevation-2);
+        }
+
+        .btn-primary {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+        }
+
+        .btn-consult {
+            background: var(--md-sys-color-secondary);
+            color: var(--md-sys-color-on-secondary);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--md-sys-color-outline);
+            color: var(--md-sys-color-on-surface);
+            background: var(--md-sys-color-surface-container);
+        }
+
+        /* Titles & Cards */
+        .section-title {
+            text-align: center;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            color: var(--md-sys-color-on-surface);
+            letter-spacing: -0.5px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Material Cards */
+        .card {
+            background: var(--md-sys-color-surface-container);
+            padding: 28px;
+            border-radius: var(--md-shape-corner-large);
+            border: 1px solid var(--md-sys-color-outline);
+            box-shadow: var(--md-elevation-1);
+            transition: transform 0.3s var(--md-transition), box-shadow 0.3s var(--md-transition), border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--md-elevation-2);
+            border-color: var(--md-sys-color-primary);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: var(--md-sys-color-on-surface-variant);
+            font-size: 0.95rem;
+        }
+
+        /* Value Prop Card Accent */
+        .value-card {
+            border-left: 6px solid var(--md-sys-color-primary);
+        }
+
+        .value-card h3 {
+            color: var(--md-sys-color-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Service Cards Accent */
+        .service-card {
+            border-top: 6px solid var(--md-sys-color-secondary);
+        }
+
+        .service-card h3 {
+            color: var(--md-sys-color-on-surface);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-card .material-symbols-outlined {
+            color: var(--md-sys-color-secondary);
+        }
+
+        /* Material Timeline */
+        .timeline {
+            border-left: 3px solid var(--md-sys-color-outline);
+            padding-left: 32px;
+            margin-left: 12px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            border-radius: var(--md-shape-corner-full);
+            background: var(--md-sys-color-primary);
+            box-shadow: 0 0 0 4px var(--md-sys-color-bg);
+        }
+
+        .timeline-date {
+            color: var(--md-sys-color-primary);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .timeline h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .timeline h4 {
+            color: var(--md-sys-color-on-surface-variant);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        .location {
+            font-size: 0.85rem;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        /* Material Contact Banner */
+        .contact-box {
+            text-align: center;
+            background: var(--md-sys-color-surface-container);
+            border: 1px solid var(--md-sys-color-outline);
+            padding: 48px 24px;
+            border-radius: var(--md-shape-corner-large);
+            box-shadow: var(--md-elevation-1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: var(--md-sys-color-on-surface);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: var(--md-shape-corner-full);
+            border: 1px solid var(--md-sys-color-outline);
+            background: var(--md-sys-color-surface-container-high);
+            transition: border-color 0.2s, color 0.2s, background 0.2s;
+        }
+
+        .social-links a:hover {
+            border-color: var(--md-sys-color-primary);
+            color: var(--md-sys-color-primary);
+            background: var(--md-sys-color-surface-container);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--md-sys-color-outline);
+            background: var(--md-sys-color-surface);
+            text-align: center;
+            padding: 32px 20px;
+            color: var(--md-sys-color-on-surface-variant);
+            font-size: 0.9rem;
+        }
+
+        /* Typing Effect */
+        @keyframes blink {
+            0%, 100% { border-right-color: transparent; }
+            50% { border-right-color: var(--md-sys-color-on-surface); }
+        }
+
+        .typing {
+            border-right: 3px solid var(--md-sys-color-on-surface);
+            animation: blink 0.7s infinite;
+        }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hero h1 { font-size: 2.25rem; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- Preloader -->
-<div id="preloader"><div class="spinner"></div></div>
+    <!-- Header / Navbar -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Vishal Chaudhary</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#value-proposition">Dual-Domain</a></li>
+                    <li><a href="#services">Advisory</a></li>
+                    <li><a href="#media">GovernanceGuard</a></li>
+                    <li><a href="#projects">Frameworks</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" id="dark-toggle">
+                    <span class="material-symbols-outlined">dark_mode</span> <span>Dark</span>
+                </button>
+            </nav>
+        </div>
+    </header>
 
-<header>
-  <h1 id="typed-header"></h1>
-  <p>Cybersecurity Specialist • Risk Assessor • ISO Consultant</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge-group">
+                <span class="badge"><span class="material-symbols-outlined" style="font-size: 18px;">verified_user</span> CISA & Security Architect</span>
+                <span class="badge"><span class="material-symbols-outlined" style="font-size: 18px;">terminal</span> GRC Technical SME</span>
+                <span class="badge badge-alt"><span class="material-symbols-outlined" style="font-size: 18px;">handshake</span> Open for Consulting & Partnering</span>
+            </div>
+            <h1 id="typed-header"></h1>
+            <p>Bridging CISA-aligned audit compliance (ISO 27001, PCI DSS 4.0, NIST 800-53, DPDPA) with hands-on CCNA & SOC technical engineering for GCCs, Tier-1 Consultancies, and Tech Product Companies.</p>
+            <div>
+                <a href="#contact" class="btn-primary"><span class="material-symbols-outlined">mail</span> Hire / Connect</a>
+                <a href="#services" class="btn-consult"><span class="material-symbols-outlined">work</span> Freelance & Partnering</a>
+                <a href="#value-proposition" class="btn-secondary"><span class="material-symbols-outlined">analytics</span> Why Dual-Domain?</a>
+            </div>
+        </div>
+    </section>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#recommendation">Recommendation</a>
-    <a href="#blog-list">Blog</a>
+    <!-- Executive Summary -->
+    <section id="about" class="container">
+        <h2 class="section-title">Executive Summary</h2>
+        <div class="card" style="padding: 36px; font-size: 1.05rem; line-height: 1.8;">
+            <p>Senior Technical Risk & GRC Architect combining <strong>CISA expertise</strong> with 5 years of hands-on security engineering experience. Proven capability to design policy, audit controls, and directly collaborate with network engineering teams to execute remediation. Creator of <strong>GovernanceGuard</strong>, delivering technical walkthroughs on regulatory mandates (<strong>ISO 27001, PCI DSS 4.0, NIST 800-53/61, RBI ITGC, DPDPA, ISO 42001 AI Governance</strong>) and infrastructure security baselines across Global Capability Centers (GCCs), Big 4 consultancies, and cloud product firms.</p>
+        </div>
+    </section>
 
-    <button id="dark-toggle" 
-      style="border:none;background:none;cursor:pointer;font-size:1rem;margin-left:1rem;">
-      🌙
-    </button>
-  </nav>
-</header>
+    <!-- Dual-Domain Strategic Value Proposition -->
+    <section id="value-proposition" class="bg-alt">
+        <div class="container">
+            <h2 class="section-title">The Dual-Domain Advantage</h2>
+            <div class="grid-3">
+                <div class="card value-card">
+                    <h3><span class="material-symbols-outlined">policy</span> 1. CISA Governance & Audit</h3>
+                    <p>Formal CISA expertise to conduct regulatory audits, write policy frameworks, and drive ISO 27001/PCI DSS 4.0 readiness across enterprise risk landscapes.</p>
+                </div>
+                <div class="card value-card">
+                    <h3><span class="material-symbols-outlined">hub</span> 2. CCNA & SOC Remediation</h3>
+                    <p>Proven technical background to review firewall rules, analyze packet captures, harden AWS/Linux baselines, and execute active vulnerability remediation.</p>
+                </div>
+                <div class="card value-card">
+                    <h3><span class="material-symbols-outlined">join</span> 3. Single-Point Efficiency</h3>
+                    <p>Eliminates the need to hire separate GRC and engineering specialists by bridging executive compliance with technical execution natively.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<main class="container">
+    <!-- Freelance & Partnership Offerings -->
+    <section id="services" class="container">
+        <h2 class="section-title">Advisory, Consulting & Partnering</h2>
+        <div class="grid-3">
+            <div class="card service-card">
+                <h3><span class="material-symbols-outlined">gavel</span> Audit Readiness & ISO Lead</h3>
+                <p>End-to-end implementation and CISA-aligned audit readiness for ISO 27001, ISO 27701 (PIMS), ISO 22301 (BCMS), and ISO 42001 (AI Management).</p>
+            </div>
+            <div class="card service-card">
+                <h3><span class="material-symbols-outlined">account_balance</span> FinTech & GCC Compliance</h3>
+                <p>Gap analysis, SAR assessments, and compliance enforcement for FinTechs, Financial Services, and GCCs facing RBI, PCI DSS 4.0, and DPDPA mandates.</p>
+            </div>
+            <div class="card service-card">
+                <h3><span class="material-symbols-outlined">shield_person</span> Virtual CISO & Fractional Partner</h3>
+                <p>Strategic security leadership for tech product firms needing fractional VCISO support, Third-Party Risk Management (TPRM), and technical security baselines.</p>
+            </div>
+        </div>
+    </section>
 
-<section id="about">
-  <h2>🙋 About Me</h2>
-  <p>
-    Experienced Information Security Specialist with a solid background in ISO 27001 implementation,
-    risk assessment, and project management. Proven expertise in designing and deploying Information
-    Security Management Systems (ISMS) and ensuring regulatory compliance across multiple standards.
-    Known for strong communication, stakeholder engagement, and audit readiness. I bring a
-    solution-oriented approach to cybersecurity and governance frameworks.
-  </p>
-</section>
+    <!-- YouTube & Media Section (GovernanceGuard) -->
+    <section id="media" class="bg-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="material-symbols-outlined" style="color: var(--md-sys-color-error); vertical-align: middle;">smart_display</span> GovernanceGuard Channel
+            </h2>
+            <div class="card" style="max-width: 850px; margin: 0 auto; padding: 40px; text-align: center;">
+                <h3 style="font-size: 1.35rem; margin-bottom: 12px; color: var(--md-sys-color-on-surface);">Enterprise GRC, Risk & Compliance Knowledge Base</h3>
+                <p style="color: var(--md-sys-color-on-surface-variant); margin-bottom: 28px;">I host <strong>GovernanceGuard</strong>, delivering practical frameworks, audit readiness strategies, and deep dives into PCI DSS 4.0, ISO 42001 AI governance, and cybersecurity risk frameworks.</p>
+                <a href="https://www.youtube.com/@GovernanceGuard" target="_blank" class="btn-primary" style="background: #ff0000; color: #ffffff;">
+                    <span class="material-symbols-outlined">play_circle</span> Visit GovernanceGuard on YouTube
+                </a>
+            </div>
+        </div>
+    </section>
 
-<section id="projects">
-  <h2>🚀 Projects & Domains</h2>
-  <ul class="card-grid">
-    <li class="card">ISO 27001</li>
-    <li class="card">ISO 27701</li>
-    <li class="card">Incident Response Readiness (800-53, 800-61)</li>
-    <li class="card">RBI DL SAR</li>
-    <li class="card">RBI DPSC</li>
-    <li class="card">RBI IT Outsourcing</li>
-    <li class="card">RBI ITGC</li>
-    <li class="card">SEBI CSF</li>
-    <li class="card">UIDAI AUA/KUA</li>
-    <li class="card">PCI DSS 4.1</li>
-    <li class="card">Cybersecurity – Thermal Power Plant (CPA)</li>
-  </ul>
-</section>
+    <!-- Projects & Technical Capabilities -->
+    <section id="projects" class="container">
+        <h2 class="section-title">Technical Standards & Compliance Architecture</h2>
+        <div class="grid-3">
+            <div class="card"><h3>ISO 27001 & ISO 27701</h3><p>Enterprise ISMS Architecture & Privacy Governance</p></div>
+            <div class="card"><h3>PCI DSS 4.0 / 4.1</h3><p>Payment Security, Scope Reduction & QSA Audit Readiness</p></div>
+            <div class="card"><h3>NIST 800-53 & 800-61</h3><p>Incident Response Workflows, BIA Testing & Control Mapping</p></div>
+            <div class="card"><h3>RBI Regulatory Frameworks</h3><p>DL SAR, DPSC, IT Outsourcing & IT General Controls (ITGC)</p></div>
+            <div class="card"><h3>SEBI CSF & UIDAI</h3><p>Broker Cyber Resiliency & Aadhaar Ecosystem Security</p></div>
+            <div class="card"><h3>ISO 42001 (AI Governance)</h3><p>Emerging AI Risk, Privacy & Security Compliance Frameworks</p></div>
+            <div class="card"><h3>Cloud DevSecOps & Baselines</h3><p>AWS & Azure Architecture Review, Guardrails, and CIS Benchmarks</p></div>
+            <div class="card"><h3>Technical TPRM & Remediation</h3><p>Vendor Risk Scopes, Vuln Assessment, and Network Hardening</p></div>
+        </div>
+    </section>
 
-<section id="experience">
-  <h2>💼 Experience</h2>
-  <ul>
-    <li><strong>Associate Cyber Security - ITGRC</strong><br>Confidential | Jun 2025 – Present | Noida, India</li>
-    <li><strong>Information Security Consultant</strong><br>eSec Forte® Technologies | Apr 2024 – May 2025 | Gurugram, India</li>
-    <li><strong>Cyber Security Engineer</strong><br>Panacea Infosec Pvt Ltd | Apr 2023 – Mar 2024 | Delhi, India</li>
-    <li><strong>Associate Cybersecurity Engineer</strong><br>Panacea Infosec Pvt Ltd | Apr 2022 – Apr 2023 | Delhi, India</li>
-    <li><strong>NOC / Incident Management</strong><br>Spectra | Nov 2021 – Mar 2022 | Gurugram, India</li>
-  </ul>
-</section>
-<section id="education">
-  <h2>🎓 Education</h2>
-  <ul>
-    <li><strong>Krishna Engineering College</strong><br>B.Tech in Electrical & Electronics Engineering (2014–2018)</li>
-    <li><strong>St. Mary Christian School</strong><br>12th, Science (2012–2014)</li>
-    <li><strong>St. Joseph's Academy</strong><br>10th, Science (1995–2012)</li>
-  </ul>
-</section>
+    <!-- Professional Experience -->
+    <section id="experience" class="bg-alt">
+        <div class="container">
+            <h2 class="section-title">Professional Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Jun 2025 – Present</div>
+                    <h3>Associate Cyber Security - ITGRC & Technical Risk</h3>
+                    <h4>Confidential / Consulting <span class="location">• Noida, India</span></h4>
+                    <p>Architecting enterprise risk frameworks, Business Impact Analysis (BIA), ISO 42001 (AI Governance), and technical DPDPA privacy integrations across cloud environments.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Apr 2024 – May 2025</div>
+                    <h3>Information Security & Compliance Consultant</h3>
+                    <h4>eSec Forte® Technologies <span class="location">• Gurugram, India</span></h4>
+                    <p>Spearheaded enterprise client readiness for PCI DSS 4.0 and ISO 27001. Executed TPRM vendor risk architectures and defined technical remediation pathways for engineering teams.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Apr 2023 – Mar 2024</div>
+                    <h3>Cyber Security Engineer (SOC & SecOps)</h3>
+                    <h4>Panacea Infosec Pvt Ltd <span class="location">• Delhi, India</span></h4>
+                    <p>Executed SIEM SOC incident triage, technical vulnerability management, cloud security architecture reviews, and PCI DSS baseline enforcement.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Apr 2022 – Apr 2023</div>
+                    <h3>Associate Cybersecurity Engineer</h3>
+                    <h4>Panacea Infosec Pvt Ltd <span class="location">• Delhi, India</span></h4>
+                    <p>Focused on network vulnerability assessments, Linux/AWS baseline hardening, and SOC alert escalation pathways.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 2021 – Mar 2022</div>
+                    <h3>NOC / Incident Management Specialist</h3>
+                    <h4>Spectra <span class="location">• Gurugram, India</span></h4>
+                    <p>Managed enterprise network infrastructure monitoring, traffic route analysis, and incident resolution for enterprise ISP links.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="certifications">
-  <h2>📜 Certifications</h2>
-  <ul class="card-grid">
-    <li class="card">Certified Cloud Security Practitioner – The SecOps Group</li>
-    <li class="card">Certified AppSec Practitioner – The SecOps Group</li>
-    <li class="card">Certified in Cybersecurity – (ISC)²</li>
-    <li class="card">AWS Well-Architected – Amazon Web Services</li>
-    <li class="card">EDR – Qualys</li>
-    <li class="card">Fortinet NSE Level 2 – Fortinet</li>
-    <li class="card">Splunk UBA – Splunk NYC</li>
-    <li class="card">CCNP Routing & Switching – Network Bulls</li>
-    <li class="card">CCNA Routing & Switching – Cisco</li>
-    <li class="card">Securiti PrivacyOps</li>
-    <li class="card">Securiti AI Privacy & Governance</li>
-  </ul>
-</section>
+    <!-- Education & Certifications -->
+    <section id="education" class="container">
+        <h2 id="certifications" class="section-title">Certifications & Credentials</h2>
+        <div class="grid-3" style="margin-bottom: 60px;">
+            <div class="card"><h3>CISA Alignment</h3><p>Certified Information Systems Auditor Standard</p></div>
+            <div class="card"><h3>CCNP / CCNA Routing & Switching</h3><p>Cisco Network Engineering Baseline</p></div>
+            <div class="card"><h3>Certified Cloud Security Practitioner</h3><p>The SecOps Group</p></div>
+            <div class="card"><h3>Certified AppSec Practitioner</h3><p>The SecOps Group</p></div>
+            <div class="card"><h3>Certified in Cybersecurity (CC)</h3><p>(ISC)²</p></div>
+            <div class="card"><h3>AWS Well-Architected</h3><p>Amazon Web Services</p></div>
+            <div class="card"><h3>Securiti AI Privacy & Governance</h3><p>Securiti Certified Specialist</p></div>
+            <div class="card"><h3>Securiti PrivacyOps</h3><p>Securiti</p></div>
+            <div class="card"><h3>EDR Specialist Certification</h3><p>Qualys</p></div>
+            <div class="card"><h3>Fortinet NSE Level 2</h3><p>Fortinet</p></div>
+            <div class="card"><h3>Splunk UBA</h3><p>Splunk NYC</p></div>
+        </div>
 
-<section id="recommendation">
-  <h2>🗣️ Recommendation</h2>
-  <blockquote style="font-style:italic; color:#555; border-left:4px solid var(--link-color); padding-left:1rem;">
-    “Vishal is an exceptional colleague in the field of cybersecurity, demonstrating profound
-    expertise in threat analysis, risk assessment, and incident response. With a proven track record
-    of implementing robust security measures, he consistently stays ahead of emerging cyber threats.
-    Vishal's analytical mindset and strong problem-solving skills make him a valuable asset in
-    identifying and mitigating vulnerabilities. His effective communication and collaboration skills
-    foster a seamless integration of security protocols within the organization. Vishal's
-    commitment to staying current with industry trends ensures that our cybersecurity
-    infrastructure remains cutting-edge and resilient.”
-    <br><br>
-    <footer>– Shubham Kumar</footer>
-  </blockquote>
-</section>
+        <h2 class="section-title">Education</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>B.Tech - Electrical & Electronics</h3>
+                <p>Krishna Engineering College (2014–2018)</p>
+            </div>
+            <div class="card">
+                <h3>12th Science</h3>
+                <p>St. Mary Christian School (2012–2014)</p>
+            </div>
+            <div class="card">
+                <h3>10th Science</h3>
+                <p>St. Joseph's Academy (1995–2012)</p>
+            </div>
+        </div>
+    </section>
 
-<section id="blog-list">
-  <h2>📝 Blog</h2>
-  <ul id="blog-links"></ul>
-</section>
+    <!-- Contact & Connect -->
+    <section id="contact" class="bg-alt">
+        <div class="container">
+            <div class="contact-box">
+                <h2 style="font-size: 2.25rem; margin-bottom: 12px;">Let's Connect</h2>
+                <p style="color: var(--md-sys-color-on-surface-variant); max-width: 700px; margin: 0 auto 24px;">Targeting Senior GRC & Security Architecture roles (GCCs, Consultancies, Tech Product Companies), high-impact freelance engagements, and fractional VCISO partnerships.</p>
+                
+                <div class="social-links">
+                    <a href="mailto:vishchaudhary20021994@gmail.com"><span class="material-symbols-outlined">mail</span> Email Me</a>
+                    <a href="https://www.linkedin.com/in/vishal-chaudhary-224701116/" target="_blank"><span class="material-symbols-outlined">link</span> LinkedIn Profile</a>
+                    <a href="https://www.youtube.com/@GovernanceGuard" target="_blank"><span class="material-symbols-outlined" style="color: var(--md-sys-color-error);">smart_display</span> GovernanceGuard YouTube</a>
+                    <a href="https://github.com/vishsecurity" target="_blank"><span class="material-symbols-outlined">code</span> GitHub Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="blog-post">
-  <button id="close-post">← Back to Blog</button>
-  <h1 id="post-title"></h1>
-  <article id="blog-content">Loading...</article>
-</section>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Vishal Chaudhary. All rights reserved.</p>
+    </footer>
 
-</main>
+    <script>
+        /* Typing Header Effect */
+        const headerText = "Vishal Chaudhary";
+        let typedIndex = 0;
 
-<footer>
-  <p>&copy; 2025 Vishal Chaudhary. All rights reserved.</p>
-</footer>
+        function typeHeader() {
+            const el = document.getElementById('typed-header');
+            if (typedIndex < headerText.length) {
+                el.innerHTML += headerText.charAt(typedIndex);
+                typedIndex++;
+                setTimeout(typeHeader, 120);
+            } else {
+                el.classList.remove('typing');
+            }
+        }
 
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const typedEl = document.getElementById('typed-header');
+            typedEl.classList.add('typing');
+            typeHeader();
 
-<script>
-/* ---------------- PRELOADER ---------------- */
-window.addEventListener('load', () => {
-  const pre = document.getElementById('preloader');
-  pre.style.opacity = 0;
-  setTimeout(() => pre.style.display = 'none', 500);
-});
-
-/* ---------------- TYPING EFFECT ---------------- */
-const headerText = "Vishal Chaudhary";
-let typedIndex = 0;
-
-function typeHeader() {
-  const el = document.getElementById('typed-header');
-  if (typedIndex < headerText.length) {
-    el.innerHTML += headerText.charAt(typedIndex);
-    typedIndex++;
-    setTimeout(typeHeader, 150);
-  } else {
-    el.classList.remove('typing');
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('typed-header').classList.add('typing');
-  typeHeader();
-
-  /* ---------------- DARK MODE ---------------- */
-  const toggle = document.getElementById('dark-toggle');
-  toggle.addEventListener('click', () => {
-    const htmlEl = document.documentElement;
-    if (htmlEl.getAttribute('data-theme') === 'dark') {
-      htmlEl.removeAttribute('data-theme');
-      toggle.innerText = '🌙';
-    } else {
-      htmlEl.setAttribute('data-theme', 'dark');
-      toggle.innerText = '☀️';
-    }
-  });
-
-  /* ---------------- SCROLL SECTION ANIMATION ---------------- */
-  const sections = document.querySelectorAll('section');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  sections.forEach(sec => observer.observe(sec));
-  /* ---------------- BLOG SYSTEM ---------------- */
-  const blogPosts = [
-    { title: "DPDPA 2025", filename: "DPDPA.md" },
-    { title: "SOC 2 Type 2 Maaping with GDPR and PIMS", filename: "SOC2.md" }
-  ];
-
-  const blogLinks = document.getElementById('blog-links');
-  const blogList = document.getElementById('blog-list');
-  const blogPost = document.getElementById('blog-post');
-  const postTitle = document.getElementById('post-title');
-  const blogContent = document.getElementById('blog-content');
-  const closePost = document.getElementById('close-post');
-
-  blogPosts.forEach(post => {
-    const li = document.createElement('li');
-    li.textContent = post.title;
-    li.style.cursor = 'pointer';
-    li.style.color = 'var(--link-color)';
-
-    li.addEventListener('click', async () => {
-      try {
-        const resp = await fetch(`blogs/${post.filename}`);
-        if (!resp.ok) throw new Error('Failed');
-
-        const md = await resp.text();
-        blogContent.innerHTML = marked.parse(md);
-
-        const firstHeader = md.match(/^# (.*)/m);
-        postTitle.textContent = firstHeader ? firstHeader[1] : post.title;
-
-        blogList.classList.add('fade-out');
-        setTimeout(() => {
-          blogList.style.display = 'none';
-          blogList.classList.remove('fade-out');
-          blogPost.classList.add('show');
-        }, 400);
-
-        document.getElementById('blog-post').scrollIntoView({ behavior: 'smooth' });
-
-      } catch (err) {
-        blogContent.innerHTML = "<p><em>Sorry, the post could not be loaded.</em></p>";
-        postTitle.textContent = "Error";
-        blogList.style.display = "none";
-        blogPost.classList.add("show");
-      }
-    });
-
-    blogLinks.appendChild(li);
-  });
-
-  closePost.addEventListener('click', () => {
-    blogPost.classList.remove('show');
-    setTimeout(() => {
-      blogPost.style.opacity = 0;
-      blogPost.style.visibility = 'hidden';
-      blogList.style.display = 'block';
-      window.scrollTo(0, 0);
-    }, 400);
-  });
-});
-</script>
-
+            /* Theme Toggle (Dark/Light) */
+            const toggleBtn = document.getElementById('dark-toggle');
+            toggleBtn.addEventListener('click', () => {
+                const html = document.documentElement;
+                const isDark = html.getAttribute('data-theme') === 'dark';
+                
+                if (isDark) {
+                    html.setAttribute('data-theme', 'light');
+                    toggleBtn.innerHTML = '<span class="material-symbols-outlined">light_mode</span> <span>Light</span>';
+                } else {
+                    html.setAttribute('data-theme', 'dark');
+                    toggleBtn.innerHTML = '<span class="material-symbols-outlined">dark_mode</span> <span>Dark</span>';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
