@@ -4,67 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vishal Chaudhary | Technical GRC & Security Architecture Consultant</title>
-    <!-- Material Symbols Outlined -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <!-- Google Fonts: Roboto & Inter for Material Design 3 Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
     <style>
         :root {
-            /* Material Design 3 Dark Palette Tokens */
-            --md-sys-color-bg: #0f141c;
-            --md-sys-color-surface: #131b26;
-            --md-sys-color-surface-container: #1b2432;
-            --md-sys-color-surface-container-high: #232d3f;
-            --md-sys-color-primary: #a0caef;
-            --md-sys-color-on-primary: #003258;
-            --md-sys-color-primary-container: #00497d;
-            --md-sys-color-on-primary-container: #d1e4ff;
-            --md-sys-color-secondary: #6ee7b7;
-            --md-sys-color-on-secondary: #003822;
-            --md-sys-color-secondary-container: #005234;
-            --md-sys-color-on-secondary-container: #8cf4d3;
-            --md-sys-color-error: #ffb4ab;
-            --md-sys-color-on-surface: #e2e8f0;
-            --md-sys-color-on-surface-variant: #94a3b8;
-            --md-sys-color-outline: #334155;
-            
-            /* Material Motion & Shapes */
-            --md-shape-corner-small: 8px;
-            --md-shape-corner-medium: 16px;
-            --md-shape-corner-large: 24px;
-            --md-shape-corner-full: 9999px;
-            --md-transition: cubic-bezier(0.2, 0.0, 0.0, 1.0) 0.3s;
-            --md-elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
-            --md-elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+            /* Apple Dark Mode Palette */
+            --bg-canvas: #000000;
+            --bg-surface: rgba(28, 28, 30, 0.65);
+            --bg-surface-elevated: rgba(44, 44, 46, 0.75);
+            --bg-alt: #050507;
+            --accent-blue: #2997ff;
+            --accent-green: #30d158;
+            --accent-red: #ff453a;
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --border: rgba(255, 255, 255, 0.12);
+            --glass-blur: blur(20px);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --radius-pill: 980px;
+            --radius-card: 20px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
 
         [data-theme="light"] {
-            /* Material Design 3 Light Palette Tokens */
-            --md-sys-color-bg: #f8fafc;
-            --md-sys-color-surface: #ffffff;
-            --md-sys-color-surface-container: #edf2f7;
-            --md-sys-color-surface-container-high: #e2e8f0;
-            --md-sys-color-primary: #0061a4;
-            --md-sys-color-on-primary: #ffffff;
-            --md-sys-color-primary-container: #d1e4ff;
-            --md-sys-color-on-primary-container: #001d36;
-            --md-sys-color-secondary: #006c47;
-            --md-sys-color-on-secondary: #ffffff;
-            --md-sys-color-secondary-container: #8cf4d3;
-            --md-sys-color-on-secondary-container: #002113;
-            --md-sys-color-error: #ba1a1a;
-            --md-sys-color-on-surface: #0f172a;
-            --md-sys-color-on-surface-variant: #475569;
-            --md-sys-color-outline: #cbd5e1;
-            --md-elevation-1: 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 1px 2px -1px rgba(0, 0, 0, 0.1);
-            --md-elevation-2: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+            /* Apple Light Mode Palette */
+            --bg-canvas: #f5f5f7;
+            --bg-surface: rgba(255, 255, 255, 0.7);
+            --bg-surface-elevated: rgba(255, 255, 255, 0.9);
+            --bg-alt: #ffffff;
+            --accent-blue: #0071e3;
+            --accent-green: #34c759;
+            --accent-red: #ff3b30;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --border: rgba(0, 0, 0, 0.08);
+            --glass-blur: blur(20px);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
         html {
@@ -72,52 +54,51 @@
         }
 
         body {
-            background-color: var(--md-sys-color-bg);
-            color: var(--md-sys-color-on-surface);
-            line-height: 1.6;
-            transition: background-color 0.3s var(--md-transition), color 0.3s var(--md-transition);
+            background-color: var(--bg-canvas);
+            color: var(--text-primary);
+            line-height: 1.47059;
+            letter-spacing: -0.022em;
+            transition: var(--transition);
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1040px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 100px 24px;
         }
 
         .bg-alt {
-            background-color: var(--md-sys-color-surface);
+            background-color: var(--bg-alt);
         }
 
-        /* Material Top App Bar */
+        /* Apple Navigation Bar */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(19, 27, 38, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--md-sys-color-outline);
+            background: var(--bg-surface);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid var(--border);
             z-index: 1000;
-        }
-
-        [data-theme="light"] header {
-            background: rgba(255, 255, 255, 0.85);
+            transition: var(--transition);
         }
 
         .nav-container {
-            max-width: 1100px;
+            max-width: 1040px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 20px;
+            padding: 14px 24px;
         }
 
         .logo {
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: var(--md-sys-color-primary);
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: var(--text-primary);
             text-decoration: none;
-            letter-spacing: -0.2px;
+            letter-spacing: -0.015em;
         }
 
         nav {
@@ -134,238 +115,245 @@
         }
 
         nav a {
-            color: var(--md-sys-color-on-surface-variant);
+            color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            padding: 8px 12px;
-            border-radius: var(--md-shape-corner-full);
-            transition: background 0.2s, color 0.2s;
+            font-size: 0.85rem;
+            font-weight: 400;
+            transition: var(--transition);
         }
 
         nav a:hover {
-            color: var(--md-sys-color-primary);
-            background: var(--md-sys-color-surface-container-high);
+            color: var(--text-primary);
         }
 
+        /* Apple Theme Toggle Switch */
         .theme-toggle {
-            background: var(--md-sys-color-surface-container-high);
-            border: 1px solid var(--md-sys-color-outline);
-            color: var(--md-sys-color-on-surface);
-            padding: 8px 16px;
-            border-radius: var(--md-shape-corner-full);
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 6px;
-            transition: background 0.2s;
+            transition: var(--transition);
         }
 
         .theme-toggle:hover {
-            background: var(--md-sys-color-surface-container);
+            transform: scale(1.03);
+            border-color: var(--accent-blue);
         }
 
-        /* Material Hero Section */
+        /* Hero Section */
         .hero {
             min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 140px 20px 60px;
+            padding: 140px 24px 60px;
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 800px;
         }
 
         .badge-group {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
             margin-bottom: 24px;
         }
 
-        /* Material Chips */
         .badge {
-            background: var(--md-sys-color-primary-container);
-            color: var(--md-sys-color-on-primary-container);
-            padding: 6px 16px;
-            border-radius: var(--md-shape-corner-small);
-            font-size: 0.85rem;
+            background: rgba(41, 151, 255, 0.1);
+            color: var(--accent-blue);
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 0.8rem;
             font-weight: 500;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 6px;
+            border: 1px solid rgba(41, 151, 255, 0.2);
         }
 
         .badge-alt {
-            background: var(--md-sys-color-secondary-container);
-            color: var(--md-sys-color-on-secondary-container);
+            background: rgba(48, 209, 88, 0.1);
+            color: var(--accent-green);
+            border: 1px solid rgba(48, 209, 88, 0.2);
         }
 
         .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            min-height: 3.5rem;
-            letter-spacing: -0.5px;
+            font-size: 3.2rem;
+            line-height: 1.08349;
+            font-weight: 600;
+            letter-spacing: -0.003em;
+            margin-bottom: 18px;
+            min-height: 3.8rem;
         }
 
         .hero p {
-            color: var(--md-sys-color-on-surface-variant);
-            font-size: 1.15rem;
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            line-height: 1.4;
             margin-bottom: 36px;
         }
 
-        /* Material Buttons */
+        /* Apple Pill Buttons */
         .btn-primary, .btn-secondary, .btn-consult {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             padding: 12px 24px;
-            border-radius: var(--md-shape-corner-full);
+            border-radius: var(--radius-pill);
             text-decoration: none;
+            font-size: 0.95rem;
             font-weight: 500;
             margin: 6px;
-            box-shadow: var(--md-elevation-1);
-            transition: transform 0.2s var(--md-transition), box-shadow 0.2s var(--md-transition), background 0.2s;
-        }
-
-        .btn-primary:hover, .btn-secondary:hover, .btn-consult:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--md-elevation-2);
+            transition: var(--transition);
         }
 
         .btn-primary {
-            background: var(--md-sys-color-primary);
-            color: var(--md-sys-color-on-primary);
+            background: var(--accent-blue);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
         }
 
         .btn-consult {
-            background: var(--md-sys-color-secondary);
-            color: var(--md-sys-color-on-secondary);
+            background: var(--accent-green);
+            color: #ffffff;
+        }
+
+        .btn-consult:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
         }
 
         .btn-secondary {
-            border: 1px solid var(--md-sys-color-outline);
-            color: var(--md-sys-color-on-surface);
-            background: var(--md-sys-color-surface-container);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            background: var(--bg-surface);
+            backdrop-filter: var(--glass-blur);
         }
 
-        /* Titles & Cards */
+        .btn-secondary:hover {
+            background: var(--bg-surface-elevated);
+            transform: scale(1.02);
+        }
+
+        /* Section Titles & Cards */
         .section-title {
             text-align: center;
-            font-size: 2.25rem;
-            font-weight: 700;
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.015em;
             margin-bottom: 48px;
-            color: var(--md-sys-color-on-surface);
-            letter-spacing: -0.5px;
+            color: var(--text-primary);
         }
 
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
 
-        /* Material Cards */
+        /* Glassmorphism Cards */
         .card {
-            background: var(--md-sys-color-surface-container);
-            padding: 28px;
-            border-radius: var(--md-shape-corner-large);
-            border: 1px solid var(--md-sys-color-outline);
-            box-shadow: var(--md-elevation-1);
-            transition: transform 0.3s var(--md-transition), box-shadow 0.3s var(--md-transition), border-color 0.3s;
+            background: var(--bg-surface);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            padding: 32px;
+            border-radius: var(--radius-card);
+            border: 1px solid var(--border);
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
         }
 
         .card:hover {
             transform: translateY(-4px);
-            box-shadow: var(--md-elevation-2);
-            border-color: var(--md-sys-color-primary);
+            border-color: var(--accent-blue);
         }
 
         .card h3 {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        .card p {
-            color: var(--md-sys-color-on-surface-variant);
-            font-size: 0.95rem;
-        }
-
-        /* Value Prop Card Accent */
-        .value-card {
-            border-left: 6px solid var(--md-sys-color-primary);
-        }
-
-        .value-card h3 {
-            color: var(--md-sys-color-primary);
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        /* Service Cards Accent */
-        .service-card {
-            border-top: 6px solid var(--md-sys-color-secondary);
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.47059;
         }
 
-        .service-card h3 {
-            color: var(--md-sys-color-on-surface);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        /* Card Custom Accent Borders */
+        .value-card {
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .value-card h3 {
+            color: var(--accent-blue);
+        }
+
+        .service-card {
+            border-top: 4px solid var(--accent-green);
         }
 
         .service-card .material-symbols-outlined {
-            color: var(--md-sys-color-secondary);
+            color: var(--accent-green);
         }
 
-        /* Material Timeline */
+        /* Timeline */
         .timeline {
-            border-left: 3px solid var(--md-sys-color-outline);
-            padding-left: 32px;
-            margin-left: 12px;
+            border-left: 2px solid var(--border);
+            padding-left: 28px;
+            margin-left: 10px;
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 40px;
+            margin-bottom: 36px;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -40px;
-            top: 4px;
-            width: 14px;
-            height: 14px;
-            border-radius: var(--md-shape-corner-full);
-            background: var(--md-sys-color-primary);
-            box-shadow: 0 0 0 4px var(--md-sys-color-bg);
+            left: -34px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            box-shadow: 0 0 0 4px var(--bg-canvas);
         }
 
         .timeline-date {
-            color: var(--md-sys-color-primary);
-            font-size: 0.9rem;
-            font-weight: 700;
+            color: var(--accent-blue);
+            font-size: 0.85rem;
+            font-weight: 600;
             margin-bottom: 4px;
         }
 
         .timeline h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
 
         .timeline h4 {
-            color: var(--md-sys-color-on-surface-variant);
+            color: var(--text-secondary);
             font-size: 0.95rem;
             margin-bottom: 8px;
             font-weight: 400;
@@ -373,84 +361,92 @@
 
         .location {
             font-size: 0.85rem;
-            color: var(--md-sys-color-on-surface-variant);
+            color: var(--text-secondary);
         }
 
-        /* Material Contact Banner */
+        /* Contact Section */
         .contact-box {
             text-align: center;
-            background: var(--md-sys-color-surface-container);
-            border: 1px solid var(--md-sys-color-outline);
+            background: var(--bg-surface);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border);
             padding: 48px 24px;
-            border-radius: var(--md-shape-corner-large);
-            box-shadow: var(--md-elevation-1);
+            border-radius: var(--radius-card);
+            box-shadow: var(--card-shadow);
         }
 
         .social-links {
             display: flex;
             justify-content: center;
             gap: 16px;
-            margin-top: 32px;
+            margin-top: 28px;
             flex-wrap: wrap;
         }
 
         .social-links a {
-            color: var(--md-sys-color-on-surface);
+            color: var(--text-primary);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             padding: 10px 20px;
-            border-radius: var(--md-shape-corner-full);
-            border: 1px solid var(--md-sys-color-outline);
-            background: var(--md-sys-color-surface-container-high);
-            transition: border-color 0.2s, color 0.2s, background 0.2s;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border);
+            background: var(--bg-surface-elevated);
+            transition: var(--transition);
         }
 
         .social-links a:hover {
-            border-color: var(--md-sys-color-primary);
-            color: var(--md-sys-color-primary);
-            background: var(--md-sys-color-surface-container);
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+            transform: translateY(-2px);
         }
 
         /* Footer */
         footer {
-            border-top: 1px solid var(--md-sys-color-outline);
-            background: var(--md-sys-color-surface);
+            border-top: 1px solid var(--border);
+            background: var(--bg-alt);
             text-align: center;
-            padding: 32px 20px;
-            color: var(--md-sys-color-on-surface-variant);
-            font-size: 0.9rem;
+            padding: 36px 24px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
         }
 
-        /* Typing Effect */
+        /* Cursor Typing */
         @keyframes blink {
-            0%, 100% { border-right-color: transparent; }
-            50% { border-right-color: var(--md-sys-color-on-surface); }
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
         }
 
-        .typing {
-            border-right: 3px solid var(--md-sys-color-on-surface);
-            animation: blink 0.7s infinite;
+        .typing::after {
+            content: '|';
+            animation: blink 0.8s infinite;
+            margin-left: 2px;
+            color: var(--accent-blue);
+        }
+
+        @media (max-width: 900px) {
+            .grid-span-3 { grid-column: auto !important; }
         }
 
         @media (max-width: 768px) {
             nav ul { display: none; }
-            .hero h1 { font-size: 2.25rem; }
+            .hero h1 { font-size: 2.4rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo">Vishal Chaudhary</a>
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#blogs">Blogs</a></li>
+                    <li><a href="#lifecycle">Lifecycle</a></li>
                     <li><a href="#value-proposition">Dual-Domain</a></li>
                     <li><a href="#services">Advisory</a></li>
                     <li><a href="#media">GovernanceGuard</a></li>
@@ -459,40 +455,96 @@
                     <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <button class="theme-toggle" id="dark-toggle">
-                    <span class="material-symbols-outlined">dark_mode</span> <span>Dark</span>
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
+                    <span class="material-symbols-outlined" id="theme-icon" style="font-size: 18px;">dark_mode</span> 
+                    <span id="theme-text">Dark</span>
                 </button>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="badge-group">
-                <span class="badge"><span class="material-symbols-outlined" style="font-size: 18px;">verified_user</span> CISA & Security Architect</span>
-                <span class="badge"><span class="material-symbols-outlined" style="font-size: 18px;">terminal</span> GRC Technical SME</span>
-                <span class="badge badge-alt"><span class="material-symbols-outlined" style="font-size: 18px;">handshake</span> Open for Consulting & Partnering</span>
+                <span class="badge"><span class="material-symbols-outlined" style="font-size: 16px;">verified_user</span> CISA & Security Architect</span>
+                <span class="badge"><span class="material-symbols-outlined" style="font-size: 16px;">terminal</span> GRC Technical SME</span>
+                <span class="badge badge-alt"><span class="material-symbols-outlined" style="font-size: 16px;">handshake</span> Open for Consulting & Partnering</span>
             </div>
-            <h1 id="typed-header"></h1>
+            <h1 id="typed-header" class="typing"></h1>
             <p>Bridging CISA-aligned audit compliance (ISO 27001, PCI DSS 4.0, NIST 800-53, DPDPA) with hands-on CCNA & SOC technical engineering for GCCs, Tier-1 Consultancies, and Tech Product Companies.</p>
             <div>
-                <a href="#contact" class="btn-primary"><span class="material-symbols-outlined">mail</span> Hire / Connect</a>
-                <a href="#services" class="btn-consult"><span class="material-symbols-outlined">work</span> Freelance & Partnering</a>
-                <a href="#value-proposition" class="btn-secondary"><span class="material-symbols-outlined">analytics</span> Why Dual-Domain?</a>
+                <a href="#contact" class="btn-primary"><span class="material-symbols-outlined" style="font-size: 18px;">mail</span> Hire / Connect</a>
+                <a href="#services" class="btn-consult"><span class="material-symbols-outlined" style="font-size: 18px;">work</span> Freelance & Partnering</a>
+                <a href="#value-proposition" class="btn-secondary"><span class="material-symbols-outlined" style="font-size: 18px;">analytics</span> Why Dual-Domain?</a>
             </div>
         </div>
     </section>
 
-    <!-- Executive Summary -->
     <section id="about" class="container">
         <h2 class="section-title">Executive Summary</h2>
-        <div class="card" style="padding: 36px; font-size: 1.05rem; line-height: 1.8;">
-            <p>Senior Technical Risk & GRC Architect combining <strong>CISA expertise</strong> with 5 years of hands-on security engineering experience. Proven capability to design policy, audit controls, and directly collaborate with network engineering teams to execute remediation. Creator of <strong>GovernanceGuard</strong>, delivering technical walkthroughs on regulatory mandates (<strong>ISO 27001, PCI DSS 4.0, NIST 800-53/61, RBI ITGC, DPDPA, ISO 42001 AI Governance</strong>) and infrastructure security baselines across Global Capability Centers (GCCs), Big 4 consultancies, and cloud product firms.</p>
+        <div class="card" style="padding: 40px; font-size: 1.05rem; line-height: 1.7;">
+            <p>Senior Technical Risk & GRC Lead combining <strong>CISA expertise</strong> with 5 years of hands-on security engineering experience. Full-lifecycle engagement owner—managing MSAs, NDAs, kick-offs, custom audit checklists, and invoicing. Proven track record conducting multi-region on-site audits (Singapore, Bangalore, Tamil Nadu), architecting governance artifacts (InfoSec policies, SOPs, Risk Treatment Plans), and driving executive IT Strategy and IT Steering Committee meetings across GCCs, consultancies, and cloud firms.</p>
         </div>
     </section>
 
-    <!-- Dual-Domain Strategic Value Proposition -->
+    <section id="blogs" class="bg-alt">
+        <div class="container">
+            <h2 class="section-title">Technical Blogs & Insights</h2>
+            <div class="grid-3">
+
+                <div class="card">
+                    <div style="font-size: 0.8rem; color: var(--accent-blue); font-weight: 600; margin-bottom: 6px;">ISO 27001 / PRIVACY</div>
+                    <h3><span class="material-symbols-outlined" style="color: var(--accent-blue);">article</span> ISO 27001:2022 Audit Readiness Checklist</h3>
+                    <p style="margin-bottom: 24px;">A complete step-by-step guide for GRC leads preparing for Stage 1 & Stage 2 ISO audits.</p>
+                    <a href="https://vishsecurity.github.io/blogs/iso27001-guide.md" target="_blank" class="social-links" style="margin: 0; display: inline-flex;">
+                        <span class="material-symbols-outlined" style="font-size: 16px;">open_in_new</span> Read Article
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div style="font-size: 0.8rem; color: var(--accent-green); font-weight: 600; margin-bottom: 6px;">PAYMENT SECURITY</div>
+                    <h3><span class="material-symbols-outlined" style="color: var(--accent-green);">article</span> Transitioning to PCI DSS v4.0.1</h3>
+                    <p style="margin-bottom: 24px;">Key scope reduction strategies, custom targeted risk assessments, and technical evidence mapping.</p>
+                    <a href="https://vishsecurity.github.io/blogs/pci-dss-40.md" target="_blank" class="social-links" style="margin: 0; display: inline-flex;">
+                        <span class="material-symbols-outlined" style="font-size: 16px;">open_in_new</span> Read Article
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div style="font-size: 0.8rem; color: var(--accent-blue); font-weight: 600; margin-bottom: 6px;">AI GOVERNANCE</div>
+                    <h3><span class="material-symbols-outlined" style="color: var(--accent-blue);">article</span> ISO 42001 & AI Risk Management</h3>
+                    <p style="margin-bottom: 24px;">Implementing AI management systems and auditing LLM pipelines for data privacy and security compliance.</p>
+                    <a href="https://vishsecurity.github.io/blogs/iso42001-ai-risk.md" target="_blank" class="social-links" style="margin: 0; display: inline-flex;">
+                        <span class="material-symbols-outlined" style="font-size: 16px;">open_in_new</span> Read Article
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="lifecycle" class="container">
+        <h2 class="section-title">End-to-End Delivery & Advisory</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3><span class="material-symbols-outlined" style="color: var(--accent-blue);">description</span> Commercial & Governance</h3>
+                <p>Full lifecycle ownership: Managing Master Services Agreements (MSAs), NDAs, client onboarding, kick-off sessions, audit scope checklists, and engagement billing.</p>
+            </div>
+            <div class="card">
+                <h3><span class="material-symbols-outlined" style="color: var(--accent-blue);">draw</span> Artifact Architecture</h3>
+                <p>Authoring enterprise-grade GRC documentation, including Information Security Policies, Technical SOPs, Risk Treatment Plans (RTPs), and Control Mapping frameworks.</p>
+            </div>
+            <div class="card">
+                <h3><span class="material-symbols-outlined" style="color: var(--accent-blue);">flight_takeoff</span> Multi-Region Audits</h3>
+                <p>Executing comprehensive technical audits across international and domestic tech hubs (Singapore, Bangalore, Tamil Nadu) and delivering executive audit reports.</p>
+            </div>
+            <div class="card grid-span-3" style="grid-column: span 3 / span 3; border-color: var(--accent-blue);">
+                <h3 style="color: var(--accent-blue);"><span class="material-symbols-outlined">groups</span> IT Strategy & Steering Committee Leadership</h3>
+                <p>Representing GRC and Technical Risk in executive <strong>IT Strategy and IT Steering Committee</strong> calls to align technical controls, audit remediation, and security baselines with overall corporate business goals.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="value-proposition" class="bg-alt">
         <div class="container">
             <h2 class="section-title">The Dual-Domain Advantage</h2>
@@ -513,9 +565,8 @@
         </div>
     </section>
 
-    <!-- Freelance & Partnership Offerings -->
     <section id="services" class="container">
-        <h2 class="section-title">Advisory, Consulting & Partnering</h2>
+        <h2 class="section-title">Advisory & Consulting</h2>
         <div class="grid-3">
             <div class="card service-card">
                 <h3><span class="material-symbols-outlined">gavel</span> Audit Readiness & ISO Lead</h3>
@@ -526,31 +577,29 @@
                 <p>Gap analysis, SAR assessments, and compliance enforcement for FinTechs, Financial Services, and GCCs facing RBI, PCI DSS 4.0, and DPDPA mandates.</p>
             </div>
             <div class="card service-card">
-                <h3><span class="material-symbols-outlined">shield_person</span> Virtual CISO & Fractional Partner</h3>
+                <h3><span class="material-symbols-outlined">shield_person</span> Virtual CISO & Partner</h3>
                 <p>Strategic security leadership for tech product firms needing fractional VCISO support, Third-Party Risk Management (TPRM), and technical security baselines.</p>
             </div>
         </div>
     </section>
 
-    <!-- YouTube & Media Section (GovernanceGuard) -->
     <section id="media" class="bg-alt">
         <div class="container">
             <h2 class="section-title">
-                <span class="material-symbols-outlined" style="color: var(--md-sys-color-error); vertical-align: middle;">smart_display</span> GovernanceGuard Channel
+                <span class="material-symbols-outlined" style="color: var(--accent-red); vertical-align: middle;">smart_display</span> GovernanceGuard Channel
             </h2>
             <div class="card" style="max-width: 850px; margin: 0 auto; padding: 40px; text-align: center;">
-                <h3 style="font-size: 1.35rem; margin-bottom: 12px; color: var(--md-sys-color-on-surface);">Enterprise GRC, Risk & Compliance Knowledge Base</h3>
-                <p style="color: var(--md-sys-color-on-surface-variant); margin-bottom: 28px;">I host <strong>GovernanceGuard</strong>, delivering practical frameworks, audit readiness strategies, and deep dives into PCI DSS 4.0, ISO 42001 AI governance, and cybersecurity risk frameworks.</p>
-                <a href="https://www.youtube.com/@GovernanceGuard" target="_blank" class="btn-primary" style="background: #ff0000; color: #ffffff;">
-                    <span class="material-symbols-outlined">play_circle</span> Visit GovernanceGuard on YouTube
+                <h3 style="font-size: 1.35rem; margin-bottom: 12px; color: var(--text-primary); justify-content: center;">Enterprise GRC, Risk & Compliance Knowledge Base</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 28px;">I host <strong>GovernanceGuard</strong>, delivering practical frameworks, audit readiness strategies, and deep dives into PCI DSS 4.0, ISO 42001 AI governance, and cybersecurity risk frameworks.</p>
+                <a href="https://www.youtube.com/@GovernanceGuard" target="_blank" class="btn-primary" style="background: var(--accent-red); color: #ffffff;">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">play_circle</span> Visit GovernanceGuard on YouTube
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Projects & Technical Capabilities -->
     <section id="projects" class="container">
-        <h2 class="section-title">Technical Standards & Compliance Architecture</h2>
+        <h2 class="section-title">Standards & Compliance Frameworks</h2>
         <div class="grid-3">
             <div class="card"><h3>ISO 27001 & ISO 27701</h3><p>Enterprise ISMS Architecture & Privacy Governance</p></div>
             <div class="card"><h3>PCI DSS 4.0 / 4.1</h3><p>Payment Security, Scope Reduction & QSA Audit Readiness</p></div>
@@ -563,7 +612,6 @@
         </div>
     </section>
 
-    <!-- Professional Experience -->
     <section id="experience" class="bg-alt">
         <div class="container">
             <h2 class="section-title">Professional Journey</h2>
@@ -602,7 +650,6 @@
         </div>
     </section>
 
-    <!-- Education & Certifications -->
     <section id="education" class="container">
         <h2 id="certifications" class="section-title">Certifications & Credentials</h2>
         <div class="grid-3" style="margin-bottom: 60px;">
@@ -636,61 +683,62 @@
         </div>
     </section>
 
-    <!-- Contact & Connect -->
     <section id="contact" class="bg-alt">
         <div class="container">
             <div class="contact-box">
-                <h2 style="font-size: 2.25rem; margin-bottom: 12px;">Let's Connect</h2>
-                <p style="color: var(--md-sys-color-on-surface-variant); max-width: 700px; margin: 0 auto 24px;">Targeting Senior GRC & Security Architecture roles (GCCs, Consultancies, Tech Product Companies), high-impact freelance engagements, and fractional VCISO partnerships.</p>
+                <h2 style="font-size: 2.2rem; font-weight: 600; margin-bottom: 12px;">Let's Connect</h2>
+                <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 28px;">Targeting Senior GRC & Security Architecture roles (GCCs, Consultancies, Tech Product Companies), high-impact freelance engagements, and fractional VCISO partnerships.</p>
                 
                 <div class="social-links">
-                    <a href="mailto:vishchaudhary20021994@gmail.com"><span class="material-symbols-outlined">mail</span> Email Me</a>
-                    <a href="https://www.linkedin.com/in/vishal-chaudhary-224701116/" target="_blank"><span class="material-symbols-outlined">link</span> LinkedIn Profile</a>
-                    <a href="https://www.youtube.com/@GovernanceGuard" target="_blank"><span class="material-symbols-outlined" style="color: var(--md-sys-color-error);">smart_display</span> GovernanceGuard YouTube</a>
-                    <a href="https://github.com/vishsecurity" target="_blank"><span class="material-symbols-outlined">code</span> GitHub Projects</a>
+                    <a href="mailto:vishchaudhary20021994@gmail.com"><span class="material-symbols-outlined" style="font-size: 18px;">mail</span> Email Me</a>
+                    <a href="https://www.linkedin.com/in/vishal-chaudhary-224701116/" target="_blank"><span class="material-symbols-outlined" style="font-size: 18px;">link</span> LinkedIn Profile</a>
+                    <a href="https://www.naukri.com/mnjuser/profile" target="_blank"><span class="material-symbols-outlined" style="color: var(--accent-blue); font-size: 18px;">badge</span> Naukri Profile</a>
+                    <a href="https://www.youtube.com/@GovernanceGuard" target="_blank"><span class="material-symbols-outlined" style="color: var(--accent-red); font-size: 18px;">smart_display</span> GovernanceGuard YouTube</a>
+                    <a href="https://github.com/vishsecurity" target="_blank"><span class="material-symbols-outlined" style="font-size: 18px;">code</span> GitHub Projects</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Vishal Chaudhary. All rights reserved.</p>
     </footer>
 
     <script>
-        /* Typing Header Effect */
+        // Typing Header Animation
         const headerText = "Vishal Chaudhary";
         let typedIndex = 0;
 
         function typeHeader() {
             const el = document.getElementById('typed-header');
             if (typedIndex < headerText.length) {
-                el.innerHTML += headerText.charAt(typedIndex);
+                el.textContent += headerText.charAt(typedIndex);
                 typedIndex++;
                 setTimeout(typeHeader, 120);
-            } else {
-                el.classList.remove('typing');
             }
         }
 
+        // Theme Toggle Script
         document.addEventListener('DOMContentLoaded', () => {
-            const typedEl = document.getElementById('typed-header');
-            typedEl.classList.add('typing');
             typeHeader();
 
-            /* Theme Toggle (Dark/Light) */
-            const toggleBtn = document.getElementById('dark-toggle');
+            const toggleBtn = document.getElementById('theme-toggle-btn');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+            const html = document.documentElement;
+
             toggleBtn.addEventListener('click', () => {
-                const html = document.documentElement;
-                const isDark = html.getAttribute('data-theme') === 'dark';
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
                 
-                if (isDark) {
-                    html.setAttribute('data-theme', 'light');
-                    toggleBtn.innerHTML = '<span class="material-symbols-outlined">light_mode</span> <span>Light</span>';
+                html.setAttribute('data-theme', newTheme);
+                
+                if (newTheme === 'light') {
+                    themeIcon.textContent = 'light_mode';
+                    themeText.textContent = 'Light';
                 } else {
-                    html.setAttribute('data-theme', 'dark');
-                    toggleBtn.innerHTML = '<span class="material-symbols-outlined">dark_mode</span> <span>Dark</span>';
+                    themeIcon.textContent = 'dark_mode';
+                    themeText.textContent = 'Dark';
                 }
             });
         });
