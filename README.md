@@ -56,6 +56,16 @@ The blog section dynamically loads Markdown files stored in the `/blogs` directo
 1. Create a new `.md` file in the `blogs/` folder.
 2. Add it to the `blogPosts` array in the JavaScript:
 
+or 
+
+How to add future blog posts:
+Whenever you want to publish a new article:
+
+Create a file in _posts/ with the name format YYYY-MM-DD-your-article-name.md.
+
+Include the Front Matter header (title, date, categories, description) at the top.
+
+Commit and push to GitHub. GitHub Pages will build the HTML page automatically.
 ```js
 const blogPosts = [
   { title: "My First Blog Post", filename: "first-post.md" },
