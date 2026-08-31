@@ -1,3 +1,21 @@
+# Site Settings
 title: Vishal Chaudhary | Cyber Security & GRC
+description: Cyber GRC, Technical Risk, and Security Architecture Insights.
+url: "https://vishsecurity.github.io"
+
+# Permalinks (Maps blogs clean URLs)
 permalink: /blogs/:title/
+
+# Markdown & Build Engine
 markdown: kramdown
+highlighter: rouge
+
+# Explicit Inclusions & Exclusions
+include:
+  - blogs
+  - _posts
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
