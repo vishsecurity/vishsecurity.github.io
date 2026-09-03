@@ -1,6 +1,4 @@
-Here is the updated `README.md` with a new **Creating & Adding Posts** section included:
 
-```markdown
 # 🛡️ Vishal Chaudhary | Technical GRC & Security Architecture Portfolio
 
 Welcome to the source repository for my personal portfolio website! This project showcases my dual-domain expertise in **Technical GRC** (Governance, Risk, and Compliance) and **Security Architecture & Operations**, alongside my content creation on YouTube and ongoing technical articles.
