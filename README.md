@@ -1,101 +1,24 @@
-# 💻 Vishal Chaudhary - Cybersecurity Portfolio Website
+# 🛡️ Vishal Chaudhary | Technical GRC & Security Architecture Portfolio
 
-A sleek and responsive personal portfolio website built with HTML, CSS, and JavaScript to showcase the cybersecurity experience, certifications, projects, and blog of **Vishal Chaudhary**, a dedicated Cybersecurity Specialist and ISO Consultant.
+Welcome to the source repository for my personal portfolio website! This project showcases my dual-domain expertise in **Technical GRC** (Governance, Risk, and Compliance) and **Security Architecture & Operations**, alongside my content creation on YouTube and ongoing technical articles.
 
 ---
 
 ## 🌐 Live Preview
 
-👉 [**View Website**](https://vishsecurity.github.io/) 
+👉 **[Explore the Live Website](https://vishsecurity.github.io/)**
 
 ---
 
-## 📌 Features
+## 💡 Key Highlights & Features
 
-* 🚀 Modern, responsive, and mobile-friendly UI
-* 🌙 Light/Dark mode toggle
-* ✍️ Typing effect for intro header
-* ⏳ Preloader spinner on page load
-* 📄 Dynamic blog post loader (Markdown support via `marked.js`)
-* 🔐 Cybersecurity project domains listed
-* 🏢 Work experience & education
-* 🧾 Certifications in grid layout
-* 🗣️ Professional recommendation section
+* 📱 **Apple-Inspired Design System:** Responsive, clean layout built with modern glassmorphism aesthetic.
+* 🌓 **Seamless Light/Dark Theme:** Instant theme toggling for an optimal reading experience.
+* ⌨️ **Dynamic Interactive UI:** Custom typing animation header and interactive navigation.
+* 🎬 **Community Knowledge Base:** Integrated section highlighting my YouTube channel, **GovernanceGuard**.
+* 📝 **Blog Integration:** Lightweight JS-driven engine to dynamically surface technical articles and insights.
+* 💼 **Comprehensive Experience & Credentials:** Full display of multi-region audit advisory, commercial contract leadership, certifications, and educational background.
 
 ---
 
-## 🗂️ Folder Structure
-
-```
-├── index.html         # Main website
-└── README.md          # This file
-```
-
----
-
-## 📦 Tech Stack
-
-* **HTML5**
-* **CSS3**
-* **Vanilla JavaScript**
-
----
-
----
-
-## ⚙️ Setup & Usage
-
-1. **Clone this repository:**
-
-   ```bash
-   git clone https://github.com/yourusername/yourrepo.git
-   cd yourrepo
-   ```
-
-2. **(Optional) Serve locally for development:**
-
-   You can use VS Code Live Server or Python's built-in server:
-
-   ```bash
-   python -m http.server
-   ```
-
-3. **Open in browser:**
-
-   Open `http://localhost:8000` or simply double-click the `index.html`.
-
----
-
-## ✨ Customization Tips
-
-* Change the header typing text by editing:
-
-  ```js
-  const headerText = "Vishal Chaudhary";
-  ```
-
-* To update your roles/subtitle: edit the `<p>` tag below `<h1>` in the header.
-
-* Modify blog content in Markdown using standard syntax.
-
----
-
-## 📜 License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 🙋‍♂️ About Me
-
-I’m **Vishal Chaudhary**, a cybersecurity specialist with a proven track record in ISO implementations, risk assessments, and compliance frameworks (ISO 27001, PCI DSS, SEBI CSF, etc.).
-
-🔗 [LinkedIn](#) • [GitHub](#) • [Twitter](#)
-
----
-
-## 🙏 Acknowledgements
-
-* [marked.js](https://github.com/markedjs/marked) for Markdown rendering
-* Google Fonts for beautiful typography
-
+## 📂 Project Structure
