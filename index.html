@@ -3,41 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishal Chaudhary | Technical GRC & Security Architecture Consultant</title>
+    <title>Vishal Chaudhary | Technical GRC & Security Architecture Specialist</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
         :root {
-            /* Apple Dark Mode Palette */
-            --bg-canvas: #000000;
-            --bg-surface: rgba(28, 28, 30, 0.65);
-            --bg-surface-elevated: rgba(44, 44, 46, 0.75);
-            --bg-alt: #050507;
+            /* Apple-Inspired Dark Palette */
+            --bg-canvas: #0a0a0c;
+            --bg-surface: rgba(28, 28, 30, 0.75);
+            --bg-surface-elevated: rgba(44, 44, 46, 0.85);
+            --bg-alt: #121215;
             --accent-blue: #2997ff;
             --accent-green: #30d158;
+            --accent-purple: #bf5af2;
             --accent-red: #ff453a;
             --text-primary: #f5f5f7;
-            --text-secondary: #86868b;
+            --text-secondary: #a1a1a6;
             --border: rgba(255, 255, 255, 0.12);
             --glass-blur: blur(20px);
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             --radius-pill: 980px;
-            --radius-card: 20px;
+            --radius-card: 22px;
             --transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
 
         [data-theme="light"] {
-            /* Apple Light Mode Palette */
+            /* Apple-Inspired Light Palette */
             --bg-canvas: #f5f5f7;
-            --bg-surface: rgba(255, 255, 255, 0.7);
-            --bg-surface-elevated: rgba(255, 255, 255, 0.9);
+            --bg-surface: rgba(255, 255, 255, 0.8);
+            --bg-surface-elevated: rgba(255, 255, 255, 0.95);
             --bg-alt: #ffffff;
             --accent-blue: #0071e3;
             --accent-green: #34c759;
+            --accent-purple: #af52de;
             --accent-red: #ff3b30;
             --text-primary: #1d1d1f;
             --text-secondary: #86868b;
             --border: rgba(0, 0, 0, 0.08);
-            --glass-blur: blur(20px);
             --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
@@ -49,29 +50,25 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-canvas);
             color: var(--text-primary);
-            line-height: 1.47059;
-            letter-spacing: -0.022em;
+            line-height: 1.5;
+            letter-spacing: -0.015em;
             transition: var(--transition);
         }
 
         .container {
-            max-width: 1040px;
+            max-width: 1080px;
             margin: 0 auto;
-            padding: 100px 24px;
+            padding: 90px 24px;
         }
 
-        .bg-alt {
-            background-color: var(--bg-alt);
-        }
+        .bg-alt { background-color: var(--bg-alt); }
 
-        /* Apple Navigation Bar */
+        /* Header Navigation */
         header {
             position: fixed;
             top: 0;
@@ -81,16 +78,15 @@
             -webkit-backdrop-filter: var(--glass-blur);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
-            transition: var(--transition);
         }
 
         .nav-container {
-            max-width: 1040px;
+            max-width: 1080px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 24px;
+            padding: 16px 24px;
         }
 
         .logo {
@@ -98,7 +94,6 @@
             font-size: 1.15rem;
             color: var(--text-primary);
             text-decoration: none;
-            letter-spacing: -0.015em;
         }
 
         nav {
@@ -110,23 +105,19 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 16px;
+            gap: 18px;
             align-items: center;
         }
 
         nav a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 400;
+            font-size: 0.88rem;
             transition: var(--transition);
         }
 
-        nav a:hover {
-            color: var(--text-primary);
-        }
+        nav a:hover { color: var(--text-primary); }
 
-        /* Apple Theme Toggle Switch */
         .theme-toggle {
             background: var(--bg-surface-elevated);
             border: 1px solid var(--border);
@@ -157,9 +148,7 @@
             padding: 140px 24px 60px;
         }
 
-        .hero-content {
-            max-width: 800px;
-        }
+        .hero-content { max-width: 820px; }
 
         .badge-group {
             display: flex;
@@ -170,47 +159,51 @@
         }
 
         .badge {
-            background: rgba(41, 151, 255, 0.1);
+            background: rgba(41, 151, 255, 0.12);
             color: var(--accent-blue);
-            padding: 6px 14px;
+            padding: 6px 16px;
             border-radius: var(--radius-pill);
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             font-weight: 500;
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            border: 1px solid rgba(41, 151, 255, 0.2);
+            border: 1px solid rgba(41, 151, 255, 0.25);
         }
 
-        .badge-alt {
-            background: rgba(48, 209, 88, 0.1);
+        .badge-green {
+            background: rgba(48, 209, 88, 0.12);
             color: var(--accent-green);
-            border: 1px solid rgba(48, 209, 88, 0.2);
+            border-color: rgba(48, 209, 88, 0.25);
+        }
+
+        .badge-purple {
+            background: rgba(191, 90, 242, 0.12);
+            color: var(--accent-purple);
+            border-color: rgba(191, 90, 242, 0.25);
         }
 
         .hero h1 {
             font-size: 3.2rem;
-            line-height: 1.08349;
-            font-weight: 600;
-            letter-spacing: -0.003em;
+            line-height: 1.1;
+            font-weight: 700;
             margin-bottom: 18px;
-            min-height: 3.8rem;
         }
 
         .hero p {
             color: var(--text-secondary);
-            font-size: 1.25rem;
-            line-height: 1.4;
+            font-size: 1.2rem;
+            line-height: 1.5;
             margin-bottom: 36px;
         }
 
-        /* Apple Pill Buttons */
-        .btn-primary, .btn-secondary, .btn-consult {
+        /* Interactive Buttons */
+        .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 12px 24px;
+            padding: 12px 26px;
             border-radius: var(--radius-pill);
             text-decoration: none;
             font-size: 0.95rem;
@@ -219,52 +212,37 @@
             transition: var(--transition);
         }
 
-        .btn-primary {
-            background: var(--accent-blue);
-            color: #ffffff;
-        }
-
-        .btn-primary:hover {
-            opacity: 0.9;
-            transform: scale(1.02);
-        }
-
-        .btn-consult {
-            background: var(--accent-green);
-            color: #ffffff;
-        }
-
-        .btn-consult:hover {
-            opacity: 0.9;
-            transform: scale(1.02);
-        }
-
-        .btn-secondary {
+        .btn-blue { background: var(--accent-blue); color: #ffffff; }
+        .btn-green { background: var(--accent-green); color: #ffffff; }
+        .btn-outline {
             border: 1px solid var(--border);
             color: var(--text-primary);
             background: var(--bg-surface);
-            backdrop-filter: var(--glass-blur);
         }
 
-        .btn-secondary:hover {
-            background: var(--bg-surface-elevated);
-            transform: scale(1.02);
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
         }
 
-        /* Section Titles & Cards */
+        /* Section Layouts */
         .section-title {
             text-align: center;
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             font-weight: 600;
-            letter-spacing: -0.015em;
             margin-bottom: 48px;
-            color: var(--text-primary);
         }
 
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 22px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 22px;
         }
 
         /* Glassmorphism Cards */
@@ -285,35 +263,73 @@
         }
 
         .card h3 {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
-        .card p {
+        .card p, .card ul {
             color: var(--text-secondary);
             font-size: 0.95rem;
-            line-height: 1.47059;
+            line-height: 1.6;
         }
 
-        /* Card Custom Accent Borders */
-        .value-card {
-            border-left: 4px solid var(--accent-blue);
+        .card ul {
+            list-style: none;
+            padding-left: 0;
         }
 
-        .value-card h3 {
+        .card ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .card ul li::before {
+            content: "•";
             color: var(--accent-blue);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
         }
 
-        .service-card {
-            border-top: 4px solid var(--accent-green);
+        /* Specialized Highlight Cards */
+        .highlight-card {
+            background: linear-gradient(135deg, rgba(41, 151, 255, 0.08), rgba(48, 209, 88, 0.05));
+            border-color: rgba(41, 151, 255, 0.3);
         }
 
-        .service-card .material-symbols-outlined {
-            color: var(--accent-green);
+        /* Blog Section */
+        .blog-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .blog-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .blog-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            padding-top: 16px;
+            margin-top: 16px;
+            border-top: 1px solid var(--border);
         }
 
         /* Timeline */
@@ -347,24 +363,10 @@
             margin-bottom: 4px;
         }
 
-        .timeline h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
+        .timeline h3 { font-size: 1.2rem; font-weight: 600; }
+        .timeline h4 { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 10px; font-weight: 400; }
 
-        .timeline h4 {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 8px;
-            font-weight: 400;
-        }
-
-        .location {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        /* Contact Section */
+        /* Contact Box */
         .contact-box {
             text-align: center;
             background: var(--bg-surface);
@@ -372,13 +374,12 @@
             border: 1px solid var(--border);
             padding: 48px 24px;
             border-radius: var(--radius-card);
-            box-shadow: var(--card-shadow);
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 14px;
             margin-top: 28px;
             flex-wrap: wrap;
         }
@@ -387,7 +388,6 @@
             color: var(--text-primary);
             text-decoration: none;
             font-size: 0.9rem;
-            font-weight: 500;
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -404,7 +404,6 @@
             transform: translateY(-2px);
         }
 
-        /* Footer */
         footer {
             border-top: 1px solid var(--border);
             background: var(--bg-alt);
@@ -414,45 +413,33 @@
             font-size: 0.85rem;
         }
 
-        /* Cursor Typing */
-        @keyframes blink {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
-        }
-
-        .typing::after {
-            content: '|';
-            animation: blink 0.8s infinite;
-            margin-left: 2px;
-            color: var(--accent-blue);
-        }
-
-        @media (max-width: 900px) {
-            .grid-span-3 { grid-column: auto !important; }
-        }
+        /* Cursor Typing Animation */
+        @keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+        .typing::after { content: '|'; animation: blink 0.8s infinite; color: var(--accent-blue); }
 
         @media (max-width: 768px) {
             nav ul { display: none; }
-            .hero h1 { font-size: 2.4rem; }
+            .hero h1 { font-size: 2.3rem; }
+            .grid-2 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Top Navigation -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo">Vishal Chaudhary</a>
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#lifecycle">Lifecycle</a></li>
-                    <li><a href="#value-proposition">Dual-Domain</a></li>
-                    <li><a href="#services">Advisory</a></li>
-                    <li><a href="#media">GovernanceGuard</a></li>
-                    <li><a href="#projects">Frameworks</a></li>
+                    <li><a href="#value">Dual-Domain</a></li>
+                    <li><a href="#delivery">Advisory</a></li>
+                    <li><a href="#media">YouTube</a></li>
+                    <li><a href="#blog">Blog</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#certifications">Certifications</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact">Connect</a></li>
                 </ul>
                 <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
                     <span class="material-symbols-outlined" id="theme-icon" style="font-size: 18px;">dark_mode</span> 
@@ -462,174 +449,178 @@
         </div>
     </header>
 
+    <!-- Friendly Hero Welcome -->
     <section class="hero">
         <div class="hero-content">
             <div class="badge-group">
-                <span class="badge"><span class="material-symbols-outlined" style="font-size: 16px;">verified_user</span> CISA & Security Architect</span>
-                <span class="badge"><span class="material-symbols-outlined" style="font-size: 16px;">terminal</span> GRC Technical SME</span>
-                <span class="badge badge-alt"><span class="material-symbols-outlined" style="font-size: 16px;">handshake</span> Open for Consulting & Partnering</span>
+                <span class="badge"><span class="material-symbols-outlined" style="font-size: 16px;">verified_user</span> CISA-Aligned GRC Leader</span>
+                <span class="badge badge-green"><span class="material-symbols-outlined" style="font-size: 16px;">terminal</span> Hands-on Security Engineer</span>
+                <span class="badge badge-purple"><span class="material-symbols-outlined" style="font-size: 16px;">handshake</span> Fractional VCISO & Advisory Partner</span>
             </div>
-            <h1 id="typed-header" class="typing"></h1>
-            <p>Bridging CISA-aligned audit compliance (ISO 27001, PCI DSS 4.0, NIST 800-53, DPDPA) with hands-on CCNA & SOC technical engineering for GCCs, Tier-1 Consultancies, and Tech Product Companies.</p>
+            <h1 id="typed-header" class="typing">Vishal Chaudhary</h1>
+            <p>Hey there! 👋 I build bridges between executive compliance mandates (ISO 27001, PCI DSS 4.0, DPDPA) and real-world security engineering (SOC, AWS, CCNA networking). Based in Noida, India, I help GCCs, tech firms, and consultancies secure their ecosystems with clarity and confidence.</p>
             <div>
-                <a href="#contact" class="btn-primary"><span class="material-symbols-outlined" style="font-size: 18px;">mail</span> Hire / Connect</a>
-                <a href="#services" class="btn-consult"><span class="material-symbols-outlined" style="font-size: 18px;">work</span> Freelance & Partnering</a>
-                <a href="#value-proposition" class="btn-secondary"><span class="material-symbols-outlined" style="font-size: 18px;">analytics</span> Why Dual-Domain?</a>
+                <a href="#contact" class="btn btn-blue"><span class="material-symbols-outlined" style="font-size: 18px;">mail</span> Let's Connect</a>
+                <a href="#delivery" class="btn btn-green"><span class="material-symbols-outlined" style="font-size: 18px;">work</span> Consulting & Freelance</a>
+                <a href="#value" class="btn btn-outline"><span class="material-symbols-outlined" style="font-size: 18px;">explore</span> Explore My Approach</a>
             </div>
         </div>
     </section>
 
+    <!-- About Me & Full Overview -->
     <section id="about" class="container">
-        <h2 class="section-title">Executive Summary</h2>
-        <div class="card" style="padding: 40px; font-size: 1.05rem; line-height: 1.7;">
-            <p>Senior Technical Risk & GRC Lead combining <strong>CISA expertise</strong> with 5 years of hands-on security engineering experience. Full-lifecycle engagement owner—managing MSAs, NDAs, kick-offs, custom audit checklists, and invoicing. Proven track record conducting multi-region on-site audits (Singapore, Bangalore, Tamil Nadu), architecting governance artifacts (InfoSec policies, SOPs, Risk Treatment Plans), and driving executive IT Strategy and IT Steering Committee meetings across GCCs, consultancies, and cloud firms.</p>
+        <h2 class="section-title">A Bit About Me 👋</h2>
+        <div class="card highlight-card" style="padding: 36px;">
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin-bottom: 20px;">
+                Welcome! I’m a <strong>Technical Risk, GRC & Security Architecture Specialist</strong> with over 5 years of experience spanning hands-on SecOps and high-level risk advisory. What sets me apart is my ability to speak both business and technical languages seamlessly.
+            </p>
+            <p style="font-size: 0.98rem; line-height: 1.6; color: var(--text-secondary);">
+                Whether I'm managing full-lifecycle commercial contracts (MSAs, NDAs, scoping), heading to on-site audits across international tech hubs like Singapore, Bangalore, and Tamil Nadu, or running executive IT Steering Committee calls, I bring a practical, friendly, and solution-oriented mindset to every security challenge.
+            </p>
         </div>
     </section>
 
-    <section id="lifecycle" class="container">
-        <h2 class="section-title">End-to-End Delivery & Advisory</h2>
-        <div class="grid-3">
-            <div class="card">
-                <h3><span class="material-symbols-outlined" style="color: var(--accent-blue);">description</span> Commercial & Governance</h3>
-                <p>Full lifecycle ownership: Managing Master Services Agreements (MSAs), NDAs, client onboarding, kick-off sessions, audit scope checklists, and engagement billing.</p>
-            </div>
-            <div class="card">
-                <h3><span class="material-symbols-outlined" style="color: var(--accent-blue);">draw</span> Artifact Architecture</h3>
-                <p>Authoring enterprise-grade GRC documentation, including Information Security Policies, Technical SOPs, Risk Treatment Plans (RTPs), and Control Mapping frameworks.</p>
-            </div>
-            <div class="card">
-                <h3><span class="material-symbols-outlined" style="color: var(--accent-blue);">flight_takeoff</span> Multi-Region Audits</h3>
-                <p>Executing comprehensive technical audits across international and domestic tech hubs (Singapore, Bangalore, Tamil Nadu) and delivering executive audit reports.</p>
-            </div>
-            <div class="card grid-span-3" style="grid-column: span 3 / span 3; border-color: var(--accent-blue);">
-                <h3 style="color: var(--accent-blue);"><span class="material-symbols-outlined">groups</span> IT Strategy & Steering Committee Leadership</h3>
-                <p>Representing GRC and Technical Risk in executive <strong>IT Strategy and IT Steering Committee</strong> calls to align technical controls, audit remediation, and security baselines with overall corporate business goals.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="value-proposition" class="bg-alt">
+    <!-- The Dual Domain Advantage -->
+    <section id="value" class="bg-alt">
         <div class="container">
-            <h2 class="section-title">The Dual-Domain Advantage</h2>
+            <h2 class="section-title">The Dual-Domain Advantage 💡</h2>
             <div class="grid-3">
-                <div class="card value-card">
-                    <h3><span class="material-symbols-outlined">policy</span> 1. CISA Governance & Audit</h3>
-                    <p>Formal CISA expertise to conduct regulatory audits, write policy frameworks, and drive ISO 27001/PCI DSS 4.0 readiness across enterprise risk landscapes.</p>
+                <div class="card">
+                    <h3 style="color: var(--accent-blue);"><span class="material-symbols-outlined">policy</span> 1. Audit & Governance</h3>
+                    <p>Formal CISA expertise to conduct regulatory audits, write policy frameworks, and drive ISO 27001/PCI DSS 4.0 readiness across complex enterprise risk landscapes.</p>
                 </div>
-                <div class="card value-card">
-                    <h3><span class="material-symbols-outlined">hub</span> 2. CCNA & SOC Remediation</h3>
-                    <p>Proven technical background to review firewall rules, analyze packet captures, harden AWS/Linux baselines, and execute active vulnerability remediation.</p>
+                <div class="card">
+                    <h3 style="color: var(--accent-green);"><span class="material-symbols-outlined">hub</span> 2. Engineering & SOC</h3>
+                    <p>Practical network & cloud background (CCNA/CCNP) to review firewall configurations, analyze packet captures, harden Linux/AWS baselines, and execute active vulnerability remediation.</p>
                 </div>
-                <div class="card value-card">
-                    <h3><span class="material-symbols-outlined">join</span> 3. Single-Point Efficiency</h3>
-                    <p>Eliminates the need to hire separate GRC and engineering specialists by bridging executive compliance with technical execution natively.</p>
+                <div class="card">
+                    <h3 style="color: var(--accent-purple);"><span class="material-symbols-outlined">join</span> 3. Unified Delivery</h3>
+                    <p>Saves organizations time and friction by translating regulatory requirements directly into actionable engineering tasks for dev and infra teams.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="container">
-        <h2 class="section-title">Advisory & Consulting</h2>
-        <div class="grid-3">
-            <div class="card service-card">
-                <h3><span class="material-symbols-outlined">gavel</span> Audit Readiness & ISO Lead</h3>
-                <p>End-to-end implementation and CISA-aligned audit readiness for ISO 27001, ISO 27701 (PIMS), ISO 22301 (BCMS), and ISO 42001 (AI Management).</p>
+    <!-- Comprehensive Advisory & Commercial Services -->
+    <section id="delivery" class="container">
+        <h2 class="section-title">End-to-End Delivery & Advisory 🚀</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3><span class="material-symbols-outlined" style="color: var(--accent-blue);">description</span> Lifecycle & Commercial Advisory</h3>
+                <ul>
+                    <li>Full contract management: Managing Master Services Agreements (MSAs), NDAs, and scoping.</li>
+                    <li>End-to-end client onboarding, kick-off meetings, audit checklists, and engagement billing.</li>
+                    <li>Delivering C-suite executive reports with practical mitigation roadmaps.</li>
+                </ul>
             </div>
-            <div class="card service-card">
-                <h3><span class="material-symbols-outlined">account_balance</span> FinTech & GCC Compliance</h3>
-                <p>Gap analysis, SAR assessments, and compliance enforcement for FinTechs, Financial Services, and GCCs facing RBI, PCI DSS 4.0, and DPDPA mandates.</p>
+            <div class="card">
+                <h3><span class="material-symbols-outlined" style="color: var(--accent-green);">flight_takeoff</span> Global & Regional Audits</h3>
+                <ul>
+                    <li>Executing multi-region on-site technical audits across Singapore, Bangalore, and Tamil Nadu.</li>
+                    <li>Aligning regional compliance with international regulatory demands.</li>
+                    <li>Leading IT Steering Committee & IT Strategy calls for executive alignment.</li>
+                </ul>
             </div>
-            <div class="card service-card">
-                <h3><span class="material-symbols-outlined">shield_person</span> Virtual CISO & Partner</h3>
-                <p>Strategic security leadership for tech product firms needing fractional VCISO support, Third-Party Risk Management (TPRM), and technical security baselines.</p>
+            <div class="card">
+                <h3><span class="material-symbols-outlined" style="color: var(--accent-purple);">shield</span> ISO & Regulatory Standards</h3>
+                <ul>
+                    <li>ISO 27001 (ISMS), ISO 27701 (PIMS), ISO 22301 (BCMS), and ISO 42001 (AI Governance).</li>
+                    <li>PCI DSS 4.0 / 4.1 readiness, CDE scope reduction, and tokenization architecture.</li>
+                    <li>RBI regulatory mandates (DL SAR, DPSC, ITGC) and DPDPA data privacy compliance.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3><span class="material-symbols-outlined" style="color: var(--accent-red);">cloud</span> Technical SecOps & Hardening</h3>
+                <ul>
+                    <li>AWS & Azure security baseline reviews using CIS Benchmarks.</li>
+                    <li>SIEM SOC alert triage, incident response workflows, and threat detection.</li>
+                    <li>Third-Party Risk Management (TPRM) and technical vendor assessments.</li>
+                </ul>
             </div>
         </div>
     </section>
 
+    <!-- YouTube GovernanceGuard Integration -->
     <section id="media" class="bg-alt">
         <div class="container">
-            <h2 class="section-title">
-                <span class="material-symbols-outlined" style="color: var(--accent-red); vertical-align: middle;">smart_display</span> GovernanceGuard Channel
-            </h2>
-            <div class="card" style="max-width: 850px; margin: 0 auto; padding: 40px; text-align: center;">
-                <h3 style="font-size: 1.35rem; margin-bottom: 12px; color: var(--text-primary); justify-content: center;">Enterprise GRC, Risk & Compliance Knowledge Base</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 28px;">I host <strong>GovernanceGuard</strong>, delivering practical frameworks, audit readiness strategies, and deep dives into PCI DSS 4.0, ISO 42001 AI governance, and cybersecurity risk frameworks.</p>
-                <a href="https://www.youtube.com/@GovernanceGuard" target="_blank" class="btn-primary" style="background: var(--accent-red); color: #ffffff;">
-                    <span class="material-symbols-outlined" style="font-size: 20px;">play_circle</span> Visit GovernanceGuard on YouTube
+            <h2 class="section-title">Knowledge Sharing: GovernanceGuard 🎬</h2>
+            <div class="card highlight-card" style="max-width: 850px; margin: 0 auto; text-align: center; padding: 40px;">
+                <h3 style="justify-content: center; font-size: 1.3rem;"><span class="material-symbols-outlined" style="color: var(--accent-red);">smart_display</span> GovernanceGuard Channel</h3>
+                <p style="margin-bottom: 24px; color: var(--text-secondary);">
+                    I love giving back to the security community! Through my YouTube channel, <strong>GovernanceGuard</strong>, I break down complex security frameworks, PCI DSS 4.0 guidelines, ISO 42001 AI governance rules, and practical risk management strategies into actionable, easy-to-understand videos.
+                </p>
+                <a href="https://www.youtube.com/@GovernanceGuard" target="_blank" class="btn" style="background: var(--accent-red); color: #fff;">
+                    <span class="material-symbols-outlined" style="font-size: 18px;">play_circle</span> Visit GovernanceGuard Channel
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="container">
-        <h2 class="section-title">Standards & Compliance Frameworks</h2>
-        <div class="grid-3">
-            <div class="card"><h3>ISO 27001 & ISO 27701</h3><p>Enterprise ISMS Architecture & Privacy Governance</p></div>
-            <div class="card"><h3>PCI DSS 4.0 / 4.1</h3><p>Payment Security, Scope Reduction & QSA Audit Readiness</p></div>
-            <div class="card"><h3>NIST 800-53 & 800-61</h3><p>Incident Response Workflows, BIA Testing & Control Mapping</p></div>
-            <div class="card"><h3>RBI Regulatory Frameworks</h3><p>DL SAR, DPSC, IT Outsourcing & IT General Controls (ITGC)</p></div>
-            <div class="card"><h3>SEBI CSF & UIDAI</h3><p>Broker Cyber Resiliency & Aadhaar Ecosystem Security</p></div>
-            <div class="card"><h3>ISO 42001 (AI Governance)</h3><p>Emerging AI Risk, Privacy & Security Compliance Frameworks</p></div>
-            <div class="card"><h3>Cloud DevSecOps & Baselines</h3><p>AWS & Azure Architecture Review, Guardrails, and CIS Benchmarks</p></div>
-            <div class="card"><h3>Technical TPRM & Remediation</h3><p>Vendor Risk Scopes, Vuln Assessment, and Network Hardening</p></div>
+    <!-- Blog & Insights Section -->
+    <section id="blog" class="container">
+        <h2 class="section-title">Latest Articles & Technical Insights 📝</h2>
+        <div class="grid-3" id="blog-posts-container">
+            <!-- Rendered by JS below -->
         </div>
     </section>
 
+    <!-- Detailed Work Experience -->
     <section id="experience" class="bg-alt">
         <div class="container">
-            <h2 class="section-title">Professional Journey</h2>
+            <h2 class="section-title">My Professional Journey ⏳</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-date">Jun 2025 – Present</div>
                     <h3>Associate Cyber Security - ITGRC & Technical Risk</h3>
-                    <h4>Confidential / Consulting <span class="location">• Noida, India</span></h4>
+                    <h4>Confidential / Consulting <span style="color: var(--text-secondary); font-weight: normal;">• Noida, India</span></h4>
                     <p>Architecting enterprise risk frameworks, Business Impact Analysis (BIA), ISO 42001 (AI Governance), and technical DPDPA privacy integrations across cloud environments.</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">Apr 2024 – May 2025</div>
                     <h3>Information Security & Compliance Consultant</h3>
-                    <h4>eSec Forte® Technologies <span class="location">• Gurugram, India</span></h4>
+                    <h4>eSec Forte® Technologies <span style="color: var(--text-secondary); font-weight: normal;">• Gurugram, India</span></h4>
                     <p>Spearheaded enterprise client readiness for PCI DSS 4.0 and ISO 27001. Executed TPRM vendor risk architectures and defined technical remediation pathways for engineering teams.</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">Apr 2023 – Mar 2024</div>
                     <h3>Cyber Security Engineer (SOC & SecOps)</h3>
-                    <h4>Panacea Infosec Pvt Ltd <span class="location">• Delhi, India</span></h4>
+                    <h4>Panacea Infosec Pvt Ltd <span style="color: var(--text-secondary); font-weight: normal;">• Delhi, India</span></h4>
                     <p>Executed SIEM SOC incident triage, technical vulnerability management, cloud security architecture reviews, and PCI DSS baseline enforcement.</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">Apr 2022 – Apr 2023</div>
                     <h3>Associate Cybersecurity Engineer</h3>
-                    <h4>Panacea Infosec Pvt Ltd <span class="location">• Delhi, India</span></h4>
+                    <h4>Panacea Infosec Pvt Ltd <span style="color: var(--text-secondary); font-weight: normal;">• Delhi, India</span></h4>
                     <p>Focused on network vulnerability assessments, Linux/AWS baseline hardening, and SOC alert escalation pathways.</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">Nov 2021 – Mar 2022</div>
                     <h3>NOC / Incident Management Specialist</h3>
-                    <h4>Spectra <span class="location">• Gurugram, India</span></h4>
+                    <h4>Spectra <span style="color: var(--text-secondary); font-weight: normal;">• Gurugram, India</span></h4>
                     <p>Managed enterprise network infrastructure monitoring, traffic route analysis, and incident resolution for enterprise ISP links.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="education" class="container">
-        <h2 id="certifications" class="section-title">Certifications & Credentials</h2>
-        <div class="grid-3" style="margin-bottom: 60px;">
+    <!-- Certifications & Education -->
+    <section id="certifications" class="container">
+        <h2 class="section-title">Certifications & Education 🎓</h2>
+        <div class="grid-3" style="margin-bottom: 48px;">
             <div class="card"><h3>CISA Alignment</h3><p>Certified Information Systems Auditor Standard</p></div>
-            <div class="card"><h3>CCNP / CCNA Routing & Switching</h3><p>Cisco Network Engineering Baseline</p></div>
-            <div class="card"><h3>Certified Cloud Security Practitioner</h3><p>The SecOps Group</p></div>
-            <div class="card"><h3>Certified AppSec Practitioner</h3><p>The SecOps Group</p></div>
-            <div class="card"><h3>Certified in Cybersecurity (CC)</h3><p>(ISC)²</p></div>
+            <div class="card"><h3>CCNP / CCNA Routing</h3><p>Cisco Certified Network Engineering</p></div>
+            <div class="card"><h3>Cloud Security Practitioner</h3><p>The SecOps Group</p></div>
+            <div class="card"><h3>AppSec Practitioner</h3><p>The SecOps Group</p></div>
+            <div class="card"><h3>Certified in Cybersecurity (CC)</h3><p>(ISC)² Certified</p></div>
             <div class="card"><h3>AWS Well-Architected</h3><p>Amazon Web Services</p></div>
-            <div class="card"><h3>Securiti AI Privacy & Governance</h3><p>Securiti Certified Specialist</p></div>
-            <div class="card"><h3>Securiti PrivacyOps</h3><p>Securiti</p></div>
-            <div class="card"><h3>EDR Specialist Certification</h3><p>Qualys</p></div>
-            <div class="card"><h3>Fortinet NSE Level 2</h3><p>Fortinet</p></div>
-            <div class="card"><h3>Splunk UBA</h3><p>Splunk NYC</p></div>
+            <div class="card"><h3>Securiti AI Privacy</h3><p>Securiti Certified Specialist</p></div>
+            <div class="card"><h3>Securiti PrivacyOps</h3><p>Securiti Privacy Frameworks</p></div>
+            <div class="card"><h3>Qualys EDR Specialist</h3><p>Qualys Endpoint Detection</p></div>
+            <div class="card"><h3>Fortinet NSE Level 2</h3><p>Fortinet Network Security</p></div>
+            <div class="card"><h3>Splunk UBA</h3><p>Splunk User Behavior Analytics</p></div>
         </div>
 
-        <h2 class="section-title">Education</h2>
+        <h2 class="section-title">Educational Foundation</h2>
         <div class="grid-3">
             <div class="card">
                 <h3>B.Tech - Electrical & Electronics</h3>
@@ -646,29 +637,78 @@
         </div>
     </section>
 
+    <!-- Friendly Contact Section -->
     <section id="contact" class="bg-alt">
         <div class="container">
             <div class="contact-box">
-                <h2 style="font-size: 2.2rem; font-weight: 600; margin-bottom: 12px;">Let's Connect</h2>
-                <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 28px;">Targeting Senior GRC & Security Architecture roles (GCCs, Consultancies, Tech Product Companies), high-impact freelance engagements, and fractional VCISO partnerships.</p>
-                
+                <h2 style="font-size: 2.2rem; margin-bottom: 12px;">Say Hello! 💬</h2>
+                <p style="color: var(--text-secondary); max-width: 680px; margin: 0 auto 28px;">
+                    Whether you're looking for full-time Senior GRC & Architecture leadership, freelance security advisory, or just want to discuss cybersecurity trends, I'd love to chat!
+                </p>
                 <div class="social-links">
-                    <a href="mailto:vishchaudhary20021994@gmail.com"><span class="material-symbols-outlined" style="font-size: 18px;">mail</span> Email Me</a>
-                    <a href="https://www.linkedin.com/in/vishal-chaudhary-224701116/" target="_blank"><span class="material-symbols-outlined" style="font-size: 18px;">link</span> LinkedIn Profile</a>
+                    <a href="mailto:vishchaudhary20021994@gmail.com"><span class="material-symbols-outlined" style="font-size: 18px;">mail</span> Email Me Directly</a>
+                    <a href="https://www.linkedin.com/in/vishal-chaudhary-224701116/" target="_blank"><span class="material-symbols-outlined" style="font-size: 18px;">link</span> LinkedIn</a>
                     <a href="https://www.naukri.com/mnjuser/profile" target="_blank"><span class="material-symbols-outlined" style="color: var(--accent-blue); font-size: 18px;">badge</span> Naukri Profile</a>
-                    <a href="https://www.youtube.com/@GovernanceGuard" target="_blank"><span class="material-symbols-outlined" style="color: var(--accent-red); font-size: 18px;">smart_display</span> GovernanceGuard YouTube</a>
-                    <a href="https://github.com/vishsecurity" target="_blank"><span class="material-symbols-outlined" style="font-size: 18px;">code</span> GitHub Projects</a>
+                    <a href="https://www.youtube.com/@GovernanceGuard" target="_blank"><span class="material-symbols-outlined" style="color: var(--accent-red); font-size: 18px;">smart_display</span> GovernanceGuard</a>
+                    <a href="https://github.com/vishsecurity" target="_blank"><span class="material-symbols-outlined" style="font-size: 18px;">code</span> GitHub</a>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Vishal Chaudhary. All rights reserved.</p>
+        <p>&copy; 2026 Vishal Chaudhary. Designed with care and modern Apple aesthetics.</p>
     </footer>
 
     <script>
-        // Typing Header Animation
+        // Inline Blog Post Array
+        const blogPosts = [
+            {
+                title: "PCI DSS 4.0 Scope Reduction Strategies for Cloud Architectures",
+                tag: "PCI DSS",
+                date: "Aug 2026",
+                summary: "How network segmentation, tokenization, and scoped CDE boundaries reduce audit overhead for enterprise environments.",
+                link: "https://www.youtube.com/@GovernanceGuard"
+            },
+            {
+                title: "ISO 42001: Operationalizing AI Management Systems (AIMS)",
+                tag: "AI Governance",
+                date: "Jul 2026",
+                summary: "Framework for evaluating LLM risks, managing training data transparency, and aligning with global AI regulatory standards.",
+                link: "https://www.youtube.com/@GovernanceGuard"
+            },
+            {
+                title: "Bridging Technical SOC Engineering with CISA Audits",
+                tag: "GRC Strategy",
+                date: "Jun 2026",
+                summary: "Transforming raw SIEM logs and active vulnerability scans into actionable executive risk registers and steering committee metrics.",
+                link: "https://www.youtube.com/@GovernanceGuard"
+            }
+        ];
+
+        // Dynamic Blog Posts Renderer
+        function renderBlogPosts() {
+            const container = document.getElementById('blog-posts-container');
+            if (!container) return;
+
+            container.innerHTML = blogPosts.map(post => `
+                <a href="${post.link}" target="_blank" class="card blog-card">
+                    <div>
+                        <span class="blog-tag">${post.tag}</span>
+                        <h3>${post.title}</h3>
+                        <p>${post.summary}</p>
+                    </div>
+                    <div class="blog-footer">
+                        <span>${post.date}</span>
+                        <span style="color: var(--accent-blue); font-weight: 500; display: inline-flex; align-items: center; gap: 4px;">
+                            Read More <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+                        </span>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Animated Typing Header
         const headerText = "Vishal Chaudhary";
         let typedIndex = 0;
 
@@ -681,9 +721,12 @@
             }
         }
 
-        // Theme Toggle Script
+        // Theme Toggle Functionality
         document.addEventListener('DOMContentLoaded', () => {
+            const el = document.getElementById('typed-header');
+            if (el) el.textContent = '';
             typeHeader();
+            renderBlogPosts();
 
             const toggleBtn = document.getElementById('theme-toggle-btn');
             const themeIcon = document.getElementById('theme-icon');
