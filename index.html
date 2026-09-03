@@ -457,7 +457,7 @@
                 <span class="badge badge-green"><span class="material-symbols-outlined" style="font-size: 16px;">terminal</span> Hands-on Security Engineer</span>
                 <span class="badge badge-purple"><span class="material-symbols-outlined" style="font-size: 16px;">handshake</span> Fractional VCISO & Advisory Partner</span>
             </div>
-            <h1 id="typed-header" class="typing">Vishal Chaudhary</h1>
+            <h1 id="typed-header" class="typing"></h1>
             <p>Hey there! 👋 I build bridges between executive compliance mandates (ISO 27001, PCI DSS 4.0, DPDPA) and real-world security engineering (SOC, AWS, CCNA networking). Based in Noida, India, I help GCCs, tech firms, and consultancies secure their ecosystems with clarity and confidence.</p>
             <div>
                 <a href="#contact" class="btn btn-blue"><span class="material-symbols-outlined" style="font-size: 18px;">mail</span> Let's Connect</a>
@@ -663,13 +663,14 @@
     <script>
         // Inline Blog Post Array
         const blogPosts = [
-           {
-        title: "PCI DSS 4.0 Scope Reduction Strategies for Cloud Architectures",
-        tag: "PCI DSS",
-        date: "Aug 2026",
-        summary: "How network segmentation, tokenization, and scoped CDE boundaries reduce audit overhead for enterprise environments.",
-        link: "posts/pci-dss-scope-reduction.md" // Points to your local markdown file
-    },
+            {
+                title: "PCI DSS 4.0 Scope Reduction Strategies for Cloud Architectures",
+                tag: "PCI DSS",
+                date: "Aug 2026",
+                summary: "How network segmentation, tokenization, and scoped CDE boundaries reduce audit overhead for enterprise environments.",
+                link: "posts/pci-dss-scope-reduction.md" // Points to your local markdown file
+            }
+        ];
 
         // Dynamic Blog Posts Renderer
         function renderBlogPosts() {
@@ -699,14 +700,14 @@
 
         function typeHeader() {
             const el = document.getElementById('typed-header');
-            if (typedIndex < headerText.length) {
+            if (el && typedIndex < headerText.length) {
                 el.textContent += headerText.charAt(typedIndex);
                 typedIndex++;
                 setTimeout(typeHeader, 120);
             }
         }
 
-        // Theme Toggle Functionality
+        // Theme Toggle & Initializer
         document.addEventListener('DOMContentLoaded', () => {
             const el = document.getElementById('typed-header');
             if (el) el.textContent = '';
