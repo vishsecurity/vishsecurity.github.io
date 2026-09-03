@@ -123,5 +123,3 @@ const headerText = "Vishal Chaudhary";
 Distributed under the [MIT License](https://www.google.com/search?q=LICENSE).
 
 ```
-
-```
