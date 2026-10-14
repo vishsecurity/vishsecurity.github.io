@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Technical articles and security insights by Vishal Chaudhary.">
+    <title>Article | Vishal Chaudhary</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg-canvas: #0a0a0c;
+            --bg-surface: rgba(28, 28, 30, 0.82);
+            --accent: #2997ff;
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --border: rgba(255, 255, 255, 0.12);
+        }
+        [data-theme="light"] {
+            color-scheme: light;
+            --bg-canvas: #f5f5f7;
+            --bg-surface: #fff;
+            --accent: #0071e3;
+            --text-primary: #1d1d1f;
+            --text-secondary: #68686d;
+            --border: rgba(0, 0, 0, 0.12);
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: var(--bg-canvas);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+            line-height: 1.7;
+        }
+        .topbar {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px max(24px, calc((100% - 900px) / 2));
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(18px);
+        }
+        .topbar a, .theme-toggle { color: var(--text-primary); text-decoration: none; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; }
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 12px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+        main { max-width: 780px; margin: 0 auto; padding: 64px 24px 96px; }
+        .article-meta { color: var(--text-secondary); font-size: 0.9rem; }
+        .article-tag { color: var(--accent); font-weight: 600; text-transform: uppercase; }
+        h1 { margin: 12px 0 10px; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; }
+        .article-summary { color: var(--text-secondary); font-size: 1.1rem; }
+        .article-body { margin-top: 44px; overflow-wrap: anywhere; }
+        .article-body h2, .article-body h3 { margin-top: 2em; line-height: 1.3; }
+        .article-body a { color: var(--accent); }
+        .article-body li { margin: 8px 0; }
+        .article-body blockquote { margin-left: 0; padding-left: 18px; border-left: 3px solid var(--accent); color: var(--text-secondary); }
+        .article-body pre { overflow-x: auto; padding: 16px; background: var(--bg-surface); border: 1px solid var(--border); }
+        .article-body code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+        .article-body img { max-width: 100%; height: auto; }
+        .status { color: var(--text-secondary); }
+        @media (max-width: 600px) {
+            .topbar { padding: 12px 16px; }
+            main { padding: 42px 20px 72px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <a class="back-link" href="blog.html"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span> All articles</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">
+            <span class="material-symbols-outlined" id="theme-icon" aria-hidden="true">dark_mode</span>
+            <span id="theme-label">Dark</span>
+        </button>
+    </header>
+    <main>
+        <article>
+            <p class="article-meta"><span class="article-tag" id="article-tag"></span><span id="article-date"></span></p>
+            <h1 id="article-title">Loading article...</h1>
+            <p class="article-summary" id="article-summary"></p>
+            <div class="article-body" id="article-body" aria-live="polite"><p class="status">Loading article content...</p></div>
+        </article>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeLabel = document.getElementById('theme-label');
+        const savedTheme = localStorage.getItem('portfolio-theme');
+        if (savedTheme === 'light' || savedTheme === 'dark') {
+            document.documentElement.dataset.theme = savedTheme;
+        }
+
+        function updateThemeControl() {
+            const isDark = document.documentElement.dataset.theme === 'dark';
+            themeIcon.textContent = isDark ? 'dark_mode' : 'light_mode';
+            themeLabel.textContent = isDark ? 'Dark' : 'Light';
+        }
+
+        updateThemeControl();
+        themeToggle.addEventListener('click', () => {
+            const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+            document.documentElement.dataset.theme = nextTheme;
+            localStorage.setItem('portfolio-theme', nextTheme);
+            updateThemeControl();
+        });
+
+        async function loadArticle() {
+            const body = document.getElementById('article-body');
+            const slug = new URLSearchParams(window.location.search).get('slug');
+
+            try {
+                if (!slug) throw new Error('No article was selected.');
+                const catalogResponse = await fetch('Post/posts.json');
+                if (!catalogResponse.ok) throw new Error('Unable to load the article catalog.');
+                const posts = await catalogResponse.json();
+                const normalizedSlug = String(slug).trim().toLowerCase();
+                const post = posts.find(item => {
+                    const itemSlug = String(item.slug || '').trim().toLowerCase();
+                    const fileStem = String(item.file || '').replace(/\.md$/i, '').toLowerCase();
+                    return itemSlug === normalizedSlug || fileStem === normalizedSlug;
+                });
+                if (!post || !/^[a-z0-9-]+\.md$/i.test(post.file)) throw new Error('Article not found.');
+                if (!window.marked || !window.DOMPurify) throw new Error('The article renderer could not be loaded.');
+
+                const response = await fetch(`Post/${encodeURIComponent(post.file)}`);
+                if (!response.ok) throw new Error('Unable to load article content.');
+                const markdown = await response.text();
+
+                document.title = `${post.title} | Vishal Chaudhary`;
+                document.getElementById('article-tag').textContent = `${post.tag} · `;
+                document.getElementById('article-date').textContent = post.date;
+                document.getElementById('article-title').textContent = post.title;
+                document.getElementById('article-summary').textContent = post.summary;
+
+                const articleBody = markdown
+                    .replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, '')
+                    .replace(/^#\s+.+(?:\r?\n)+/, '')
+                    .trim();
+
+                body.innerHTML = DOMPurify.sanitize(marked.parse(articleBody || 'No article content available.'));
+            } catch (error) {
+                document.getElementById('article-title').textContent = 'Article unavailable';
+                document.getElementById('article-summary').textContent = '';
+                body.textContent = error.message;
+            }
+        }
+
+        loadArticle();
+    </script>
+</body>
+</html>

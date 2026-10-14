@@ -1,0 +1,18 @@
+[
+    {
+        "slug": "pci-dss-scope-reduction",
+        "file": "pci-dss-scope-reduction.md",
+        "title": "PCI DSS 4.0 Scope Reduction Strategies for Cloud Architectures",
+        "tag": "PCI DSS",
+        "date": "Aug 2026",
+        "summary": "How network segmentation, tokenization, and scoped CDE boundaries reduce audit overhead for enterprise environments."
+    },
+    {
+        "slug": "building-governance",
+        "file": "building-governance.md",
+        "title": "Building GovernanceGuard: A Local-First GRC Audit Workbench",
+        "tag": "Governance",
+        "date": "Oct 2026",
+        "summary": "A local-first GRC dashboard built with Node.js, Express and SQLite, designed around the ISO 19011 audit lifecycle."
+    }
+]
