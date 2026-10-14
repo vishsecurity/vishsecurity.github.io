@@ -1,5 +1,13 @@
 [
     {
+        "slug": "iso-19011-audit-evidence",
+        "file": "ISO-19011.md",
+        "title": "ISO 27001:2022 Meets ISO 19011: How to Turn GRC Documentation into Real Audit Evidence",
+        "tag": "ISO 27001 / ISO 19011",
+        "date": "Oct 2026",
+        "summary": "A practical guide to translating ISMS requirements into reliable audit evidence, defensible findings, and verified corrective actions."
+    },
+    {
         "slug": "rbi-digital-lending-checklist",
         "file": "rbi-digital-lending-checklist.md",
         "title": "RBI Digital Lending Compliance: A Practical Audit Checklist for NBFCs",
