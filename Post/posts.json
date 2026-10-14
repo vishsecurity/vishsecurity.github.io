@@ -1,11 +1,11 @@
 [
     {
-        "slug": "pci-dss-scope-reduction",
-        "file": "pci-dss-scope-reduction.md",
-        "title": "PCI DSS 4.0 Scope Reduction Strategies for Cloud Architectures",
-        "tag": "PCI DSS",
-        "date": "Aug 2026",
-        "summary": "How network segmentation, tokenization, and scoped CDE boundaries reduce audit overhead for enterprise environments."
+        "slug": "rbi-digital-lending-checklist",
+        "file": "rbi-digital-lending-checklist.md",
+        "title": "RBI Digital Lending Compliance: A Practical Audit Checklist for NBFCs",
+        "tag": "RBI / Digital Lending",
+        "date": "Oct 2026",
+        "summary": "A practical compliance checklist covering onboarding, consent, underwriting, vendor governance, and audit evidence for RBI-aligned digital lending programs."
     },
     {
         "slug": "building-governance",
@@ -14,5 +14,61 @@
         "tag": "Governance",
         "date": "Oct 2026",
         "summary": "A local-first GRC dashboard built with Node.js, Express and SQLite, designed around the ISO 19011 audit lifecycle."
+    },
+    {
+        "slug": "coso-vs-cmmi",
+        "file": "coso-vs-cmmi.md",
+        "title": "COSO vs. CMMI: How to Use Both to Strengthen GRC and IT Risk Management",
+        "tag": "GRC",
+        "date": "Sep 2026",
+        "summary": "A practical comparison of COSO and CMMI and how they work together to improve internal controls, governance, and process maturity."
+    },
+    {
+        "slug": "coso-vs-iso",
+        "file": "coso-vs-iso.md",
+        "title": "ISO vs. COSO vs. CMMI: How to Use These Frameworks in Your New GRC Job",
+        "tag": "Frameworks",
+        "date": "Sep 2026",
+        "summary": "A beginner-friendly guide to choosing the right GRC framework for governance, controls, risk, and process maturity."
+    },
+    {
+        "slug": "grc-day-to-day-issue",
+        "file": "grc-day-to-day-issue.md",
+        "title": "Why GRC Teams Struggle to Close Audit Findings: The Real Problem Behind Remediation Delays",
+        "tag": "Audit Remediation",
+        "date": "Sep 2026",
+        "summary": "Why remediation stalls in real-world GRC programs and how better ownership, evidence, and governance improve closure rates."
+    },
+    {
+        "slug": "grc-implementation",
+        "file": "grc-implementation.md",
+        "title": "Implementing GRC in Day-to-Day Operations: Practical Workflows and Artifacts",
+        "tag": "Implementation",
+        "date": "Aug 2026",
+        "summary": "A hands-on look at operational GRC workflows, evidence collection, risk tracking, vendor management, and management reporting."
+    },
+    {
+        "slug": "rc-growth",
+        "file": "rc-growth.md",
+        "title": "From GRC Professional to High-Paid Cybersecurity Risk Expert: Skills That Make the Difference",
+        "tag": "Career",
+        "date": "Aug 2026",
+        "summary": "Career-focused advice on the technical, analytical, and stakeholder skills that raise GRC professionals into higher-value risk roles."
+    },
+    {
+        "slug": "toxic-work-grc",
+        "file": "toxic-work-grc.md",
+        "title": "Running GRC in a Toxic Work Culture: When Risk Management Becomes a People Challenge",
+        "tag": "Leadership",
+        "date": "Aug 2026",
+        "summary": "How transparency, accountability, and professional integrity shape the success of GRC in difficult organizational cultures."
+    },
+    {
+        "slug": "pci-dss-scope-reduction",
+        "file": "pci-dss-scope-reduction.md",
+        "title": "PCI DSS 4.0 Scope Reduction Strategies for Cloud Architectures",
+        "tag": "PCI DSS",
+        "date": "Aug 2026",
+        "summary": "How network segmentation, tokenization, and scoped CDE boundaries reduce audit overhead for enterprise environments."
     }
 ]
